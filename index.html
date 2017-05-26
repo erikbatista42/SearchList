@@ -3,13 +3,15 @@
 <head>
 	<title>No Title</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 	<script src="main.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	
 	
 <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-
+<button id="demo" onclick="myFunction()">Try it</button>
 	<div id="notebooks" ng-app="notebooks" ng-controller="NotebookListCtrl">
   <input type="text" id="query" ng-model="query"/>
 
@@ -22,5 +24,9 @@
   </ul>
   <span>Number of notebooks: {{notebooks.length}}</span>
 </div>
+
+<script type="text/javascript">
+  
+</script>
 </body>
 </html>

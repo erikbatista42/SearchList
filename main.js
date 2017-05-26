@@ -1,5 +1,11 @@
 var notebooks = angular.module('notebooks', []);
 
+function myFunction() {
+    var str = "Free Web Building Tutorials!";
+    var result = str.link("https://www.w3schools.com");
+    document.getElementById("demo").innerHTML = result;
+}
+
 notebooks.controller('NotebookListCtrl', function($scope) {
   $scope.notebooks = [
     {"name": "Alicea Joshua",
@@ -397,10 +403,60 @@ notebooks.controller('NotebookListCtrl', function($scope) {
      "website": "blank.com",
      "age": "P.8"},
 
-     {"name": "Dai, Eileen",
+     {"name": "Groos, Katherine",
      "website": "blank.com",
-     "age": "P.6"
+     "age": "P.8"},
+
+     {"name": "Hui, Jeremy",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Jin, Jennifer",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Joseph, Akil",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Levy, Benjamin",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Maqsood, Arslan",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Mian, Abdul Haseeb",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Olivares Garcia, Ruth",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Rodriguez, Fernando",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Russo, Christopher",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Santamaria, Jamie",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Serrano, Christina",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Shadizai, Saima",
+     "website": "blank.com",
+     "age": "P.8"
 }
   ];
   $scope.orderList = "name";
 });
+
+
