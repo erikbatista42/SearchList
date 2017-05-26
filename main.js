@@ -6,7 +6,7 @@ notebooks.controller('NotebookListCtrl', function($scope) {
      "website": "blank.com",
      "age": "P.1"},
 
-    {"name": " Alie, Raees ",
+    {"name": " Alie, Raees",
      "website": "blank.com",
      "age": "P.1"},
 
@@ -134,7 +134,7 @@ notebooks.controller('NotebookListCtrl', function($scope) {
      "website": "blank.com",
      "age": "P.2"},
 
-          {"name": "Azekwu, Abbel ",
+     {"name": "Azekwu, Abbel ",
      "website": "blank.com",
      "age": "P.2"},
 
@@ -242,7 +242,7 @@ notebooks.controller('NotebookListCtrl', function($scope) {
      "website": "blank.com",
      "age": "P.2"},
 
-     {"name": "Wang, Amanda"
+     {"name": "Wang, Amanda",
      "website": "blank.com",
      "age": "P.2"},
 
@@ -328,6 +328,74 @@ notebooks.controller('NotebookListCtrl', function($scope) {
      {"name": "Menbreno Lobo, Alejandro",
      "website": "blank.com",
      "age": "P.6"},
+
+     {"name": "Mejia, Ernesto",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Mohmend, Kalimullah",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Montague, Tiyonne",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Rahman, Mohammed",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Rexha, Arlind ",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Reza, Rakib ",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": " Rodriguez, Jorge",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Simmons, Ronald",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Snoddy, Kianna",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Swift, Hy Jzuan",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Tehrani, Patrick",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Weng, Kelly",
+     "website": "blank.com",
+     "age": "P.6"},
+
+     {"name": "Ahsan, Ismail ",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Cantos, Melanie",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Esquivel, Abigail",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Fayzulayev, Isabel ",
+     "website": "blank.com",
+     "age": "P.8"},
+
+     {"name": "Gonzalez, Emanuel",
+     "website": "blank.com",
+     "age": "P.8"},
 
      {"name": "Dai, Eileen",
      "website": "blank.com",
