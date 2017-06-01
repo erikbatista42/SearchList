@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>No Title</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+  <title>Okie</title>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.1/iscroll-probe.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script type="text/javascript" src="main.js"></script>
+   <link rel="stylesheet" type="text/css" href="main.css">
+   
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-	<script src="main.js"></script>
-	
-	
-<script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-<button id="demo" onclick="myFunction()">Try it</button>
-	<div id="notebooks" ng-app="notebooks" ng-controller="NotebookListCtrl">
-  <input type="text" id="query" ng-model="query"/>
-
-  <ul id="notebook_ul">
-    <li ng-repeat="notebook in notebooks | filter:query | orderBy: orderList">
-      name: {{notebook.name}}<br/>
-      website: {{notebook.website}}<br/>
-      <div class="right top">{{notebook.age}}</div>
-    </li>
-  </ul>
-  <span>Number of notebooks: {{notebooks.length}}</span>
-</div>
-
-<script type="text/javascript">
-  
-</script>
+<h1>Khan Academy Top Projects</h1>
+  <ul class="one">
+<li><a href="#">Abel Azekwu</a></li>
+<li><a href="#">Meixia Chen</a></li>
+<li><a href="#">Abdul Maalik</a></li>
+<li><a href="#">Fernando Sanchez</a></li>
+<li><a href="#">Abigail Esquivel</a></li>
+<li><a href="#">Katherine Groos</a></li>
+<li><a href="#">Akil Joseph</a></li>
+<li><a href="#">Delvin Chen</a></li>
+<li><a href="#">David Cheng</a></li>
+<li><a href="#">Daniel Doscher</a></li>
+<li><a href="#">Elijah Pachecho</a></li>
+<li><a href="#">Eileen Dai</a></li>
+<li><a href="#">Danyal Riaz</a></li>
+<li><a href="#">Chengyang Sun</a></li>
+<li><a href="#">Tianyi Gao</a></li>
+<li><a href="#">Bat-el Aronov</a></li>
+<li><a href="#">Kennard Dhanpaul</a></li>
+<li><a href="#">YuJun Lin</a></li>
+</ul>
 </body>
+
 </html>
