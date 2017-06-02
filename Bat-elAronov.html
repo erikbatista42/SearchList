@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var speed=3;
+var x=100;
+var y=200;
+var a=100;
+var b=200;
+var c=100;
+var d=200;
+
+   
+
+fill(189, 111, 189);
+rect(66, 220, 20, 20);
+
+
+var drawCharacter=function(x,y){
+
+    background(0, 12, 240);
+    noStroke();
+    fill(0, 12, 240);
+    if(mouseIsPressed && mouseX>2 && mouseY>3 && mouseX>445 && mouseY>456){
+        fill(207, 96, 219);
+    }
+    rect(2, 3, 395, 304);
+    
+    stroke(15, 6, 15);
+    fill(122, 0, 0);
+    rect(c+153, d+51, 141, 55);//obstacle 1
+    
+    rect(c+155, d+51, 55, 27);//brick 1
+    rect(c+238, d+52,55,27);//brick 2
+    rect(c+197, d+78, 55, 27);//brick 3
+    
+    fill(122, 0, 0);
+    rect(c+-100, d+-198, 141, 55);//obstacle 2
+    rect(c+-15, d+-197, 55, 27);//brick 1
+    rect(c+-54, d+-170,55,27);//brick 2
+    rect(c+-98, d+-198, 55, 27);//brick 3
+    
+    noStroke();
+    fill(0, 171, 40);
+    rect(-13, 309, 422, 145);
+    
+    fill(247, 255, 0);
+    triangle(x-100, y-154, x-56, y-134, x-38, y+6);// left ear
+    
+    fill(247, 255, 0);
+    triangle(x+32, y-127, x+32, y+4, x+78, y-165);// right ear
+    
+    fill(8, 8, 8);
+    triangle(x-52, y-135, x-102, y-157, x-90, y-124);// left ear top
+    
+    fill(8, 8, 8);
+    triangle(x+68, y-124, x+78, y-166, x+31, y-126);// right ear top
+    
+    fill(255, 255, 0);
+    ellipse(x-1, y-13, 130, 120);//head
+    
+    fill(0, 0, 0);
+    ellipse(x-23, y-25, 25, 25);//left eye
+    
+    fill(0, 0, 0);
+    ellipse(x+29, y-25, 25, 25);//right eye
+    
+    fill(250, 250, 250);
+    ellipse(x-19,y-28, 12, 12);// left pupil
+    
+    fill(250, 250, 250);
+    ellipse(x+25, y-28, 12, 12);// right pupil
+    
+    fill(255, 0, 0);
+    ellipse(x+37, y+12, 35, 35);// right cheek
+    
+    fill(255, 0, 0);
+    ellipse(x-33, y+12, 35, 35);// left cheek
+    
+    fill(10, 10, 10);
+    triangle(x+4, y+7, x+15, y-1, x-11, y-1);//nose
+    
+    fill(255, 0, 136);
+    rect(x-8, y+11, 20, 20, 72);// mouth
+    
+    fill(240, 183, 175);
+    rect(0, 359, 94, 41);// start
+    fill(0, 0, 0);
+    textSize(25);
+    text("START",0, 389);
+    
+    fill(240, 183, 175);
+    rect(306, 0, 94, 41);
+    fill(0, 0, 0);
+    textSize(25);
+    text("END", 323, 28);
+
+    
+   if(mouseIsPressed){
+       textSize(51);
+       fill(255, 0, 0);
+       text("GAME OVER!", 61, 295);
+   }
+};
+
+
+
+var drawObject=function(a,b){
+        
+
+    stroke(0, 0, 0);
+    strokeWeight(3);
+    
+    fill(255, 0, 0);
+    arc(a+183, b+75, 61, 63, -180, 0);//pokeball
+    
+    fill(255, 255, 255);
+    arc(a+183, b+75, 61, 63, a-460, -180);
+        
+    fill(36, 4, 4);
+    ellipse(a+183, b+75, 23, 23);// inner pokeball
+    
+    fill(255, 0, 0);
+    arc(a+42, b+9, 61, 63, -180, 0);//pokeball
+    
+    fill(255, 255, 255);
+    arc(a+42, b+9, 61, 63, -360, -180);
+    
+    fill(36, 4, 4);
+    ellipse(a+42, b+9, 23, 23);// inner pokeball
+    
+    fill(255, 0, 0);
+    arc(a+263, b+4, 61, 63, -180, 0);//pokeball
+    
+    fill(255, 255, 255);
+    arc(a+263, b+4, 61, 63, -360, -180);
+    
+    fill(36, 4, 4);
+    ellipse(a+263,b+4, 23, 23);// inner pokeball
+
+};
+
+draw = function() {
+  drawCharacter(mouseX, mouseY);  
+  drawObject(a,b);
+
+    
+    if (b>329){
+        speed=-4;
+    }
+    if(b<-49){
+        speed=4;
+    }
+        
+    b=b+speed;
+    
+    
+    };
+    
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

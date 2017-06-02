@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+var x=211;
+var y=210;
+var position= 297;
+var speed=40;
+draw= function() {
+    background(3, 3, 3);
+    fill(218, 245, 110);
+    ellipse(301,78,132,135);//moon
+    if(mouseIsPressed&&mouseY<=205){
+    fill(43, 255, 177);
+    }
+    fill(245, 242, 242);
+    ellipse(10,20,11,11);
+    ellipse(10,66,11,10);
+    ellipse(72,12,11,11);
+    ellipse(160,20,11,11);
+    ellipse(228,20,11,11);
+    ellipse(84,87,11,11);
+    ellipse(167,130,11,11);
+    fill(58, 75, 87);
+    rect(27,353,100,26);
+    
+    fill(255, 123, 0);
+    ellipse(mouseX,mouseY,131,-9);
+    ellipse(mouseX,mouseY,92,40);
+    fill(230, 221, 221);
+    ellipse(mouseX,mouseY,79,8);
+    fill(69, 35, 10);
+    ellipse(mouseX,mouseY,6,10);
+    
+    
+    position = position + speed;
+    fill(138, 138, 138);
+    ellipse(position, 110, 49,42);
+    ellipse(position,196,49,42);
+    ellipse(position,290,49,42);
+    if (position > 373) {
+        speed = -10;
+    }
+    if (position < 16) {
+        speed = 10;
+    }
+    fill(143, 143, 143);
+    ellipse(position,34,51,48);
+    if(position >381) {
+        speed=1;
+} 
+};
+
+
+
+
+    
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

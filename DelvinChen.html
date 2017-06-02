@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var f =createFont("monospace");
+textFont(f,26);
+var x = 200;
+var y = 200;
+var x2=400;
+var y2=200;
+var x3=400;
+var y3=200;
+var x4=400;
+var y4=200;
+var x5=200;
+var y5=200;
+var speedX=0;
+var speedY=0;
+draw= function() {
+    textFont(f,26);
+background(0, 196, 255);
+fill(53, 53, 53);
+triangle(x2-50,y2,x2,y2-20,x2,y2+20);
+triangle(x3-50,y3,x3,y2-20,x3,y3+20);
+triangle(x4-50,y4,x4,y4-20,x4,y4+20);
+triangle(x5-50,y5,x5,y5-20,x5,y5+20);
+fill(163, 91, 42);
+rect(0,364,36,36,0);
+rect(36,364,36,36,0);
+rect(72,364,36,36,0);
+rect(108,364,36,36,0);
+rect(144,364,36,36,0);
+rect(180,364,36,36,0);
+rect(216,364,36,36,0);
+rect(252,364,36,36,0);
+rect(288,364,36,36,0);
+rect(324,364,36,36,0);
+rect(360,364,36,36,0);
+rect(396,364,36,36,0);
+rect(8,372,20,20,0);
+rect(44,372,20,20,0);
+rect(80,372,20,20,0);
+rect(116,372,20,20,0);
+rect(152,372,20,20,0);
+rect(188,372,20,20,0);
+rect(224,372,20,20,0);
+rect(260,372,20,20,0);
+rect(296,372,20,20,0);
+rect(330,372,20,20,0);
+rect(368,372,20,20,0);
+rect(104,311,10,53);
+rect(85,315,50,32);
+fill(255, 255, 255);
+rect(88,318,43,26);
+line(94,324,126,324);
+line(94,330,126,330);
+line(94,337,126,337);
+fill(0, 196, 255);
+var drawmain =function(){
+fill(0, 0, 0);
+rect(x-185,y+158,10,5);
+rect(x-165,y+158,10,5);
+fill(0, 0, 255);
+rect(x-185,y+147,10,10);
+rect(x-165,y+147,10,10);
+fill(y, 0, 0);
+rect(x-185,y+106,30,40);
+rect(x-195,y+55,50,50);
+fill(0, 0, 0);
+rect(x-185,y+64,10,10);
+rect(x-165,y+64,10,10);
+fill(255, 0, 0);
+y=speedY+y;
+x=speedX+x;
+text("Get past the spikes",33,61,341,282);
+text("click the paper on the sign",4,28,393,47);
+};
+    fill(0, 196, 255);
+    if(mouseIsPressed&&mouseY>313&&mouseY<345&&mouseX>86&&mouseX<135){
+    fill(255, 0, 0);
+    }
+    
+    text("this is easy",121,97,500,500);
+    drawmain();
+if(keyIsPressed&&keyCode===UP){
+speedY=-5;
+}else{y=200;}
+if(keyIsPressed&&keyCode===LEFT){
+speedX=-3;
+}else{speedX=0;}
+
+if(keyIsPressed&&keyCode===RIGHT){
+speedX=3;
+}else{speedX=0;}
+x2=x2-3;
+if(x2<=0){
+    x2=400;}
+    x3=x3-4;
+if(x3<=0){
+    x3=400;}
+    x4=x4-5;
+if(x4<=0){
+    x4=400;}
+    x5=x5-6;
+if(x5<=0){
+    x5=400;}
+    if(x>=550){x=100;}
+if(y<=0){
+    text("YOU WIN AT LIFE",93,78,311,115);
+}
+rect(mouseX-10,mouseY-10,25,25,0);
+
+rect(325,314,50,50,0);
+textSize(11);
+fill(0, 0, 0);
+text("button",333,333,100,100);
+textSize(35);
+if(mouseIsPressed&&mouseX>325&&mouseX<375&&mouseY>310&&mouseY<365){
+    text("you did it",135,330,221,100);
+}else{
+    textSize(26);
+    text("press button for achievement",-3,279,420,100);
+}
+};
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

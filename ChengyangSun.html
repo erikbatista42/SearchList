@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var X=190;
+var Y=25;
+var speed=2;
+var X1=X+25;
+var Y1=Y+25;
+var Y2=Y-25;
+var X2=X-25;
+var Man = function(X,Y){
+    fill(mouseX,192,203);
+    ellipse(mouseX+10,mouseY+10,20,25);
+    ellipse(mouseX+10,mouseY-5,30,30);
+    rect(mouseX,mouseY+15,10,10,100);
+    rect(mouseX+10,mouseY+15,10,10,100);
+    rect(mouseX+15,mouseY+5,10,10,100);
+    rect(mouseX-5,mouseY+5,10,10,100);
+    fill(0, 0, 0);
+    ellipse(mouseX+5,mouseY-10,5,5);
+    ellipse(mouseX+15,mouseY-10,5,5);
+    ellipse(mouseX+10,mouseY,20,5);
+};
+draw= function() {
+    textSize(100);
+    noStroke();
+    background(200, 255, 255);
+    ellipse(X,Y,50,50);
+    fill(34, 255, 0);
+    stroke(0, 0, 0);
+    rect(-10,350,500,200);
+    rect(0,349,50,50);
+    rect(50,349,50,50);
+    rect(100,349,50,50);
+    rect(150,349,50,50);
+    rect(200,349,50,50);
+    rect(250,349,50,50);
+    rect(300,349,50,50);
+    rect(350,349,50,50);
+    rect(5,354,40,40);
+    rect(55,354,40,40);
+    rect(105,354,40,40);
+    rect(155,354,40,40);
+    rect(205,354,40,40);
+    rect(255,354,40,40);
+    rect(305,354,40,40);
+    rect(355,354,40,40);
+    rect(13,361,25,25);
+    rect(63,361,25,25);
+    rect(113,361,25,25);
+    rect(163,361,25,25);
+    rect(213,361,25,25);
+    rect(363,361,25,25);
+    rect(263,361,25,25);
+    rect(313,361,25,25);
+    rect(110,0,50,120);
+    rect(110,201,50,148);
+    rect(220,320,50,29);
+    rect(220,0,50,260);
+    rect(18,366,15,15);
+    rect(68,366,15,15);
+    rect(118,366,15,15);
+    rect(168,366,15,15);
+    rect(218,366,15,15);
+    rect(268,366,15,15);
+    rect(318,366,15,15);
+    rect(368,366,15,15);
+    
+    fill(0, 255, 183);rect(360,100,180,10);
+    noStroke();
+    fill(255, 0, 0);
+    if(mouseY+25<165 && mouseX<165&&mouseX>85){text("Dead!!!",45,200);}
+    if(mouseY+25>200 && mouseX<165&&mouseX>85){text("Dead!!!",45,200);}
+    if(mouseY+25>320 && mouseX<275&&mouseX>195){text("Dead!!!",45,200);}
+    if(mouseY+25<305 && mouseX<275&&mouseX>195){text("Dead!!!",45,200);}
+    if(mouseX+8>X-40 && mouseX+25<X+40 && mouseY>Y-40 && mouseY<Y+40){text("Dead!!!",45,200);}
+    if(mouseIsPressed&mouseY<100 && mouseY>70 && mouseX>375){text("Victory!!!",15,200);}
+    textSize(50);
+    if(mouseY<100 && mouseY>70 && mouseX>375){text("Left Click To Win",15,150);}
+    Man();
+    textSize(10);
+    Y=Y+speed;if(Y>=325){speed=-2;}
+    if(Y<=25){speed=2;}
+    textSize(100);
+    fill(255, 0, 0);
+    
+    
+};
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

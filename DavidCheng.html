@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var x = 200;
+var y = 200;
+var speed = 15;
+var x2 = 200;
+var y2 = 200;
+draw= function() {
+x=mouseX+150;
+stroke(0, 0, 0);
+background(81, 92, 81);
+fill(255, 0, 0);
+textSize(50);
+//head
+fill(247, 255, 0);
+ellipse(x-150,y+60,50,50);
+//face
+fill(0, 0, 0);
+ellipse(x-160,y+55,10,10);
+ellipse(x-140,y+55,10,10);
+
+//feet
+fill(247, 255, 0);
+ellipse(x-165,y+90,25,15);
+ellipse(x-135,y+90,25,15);
+//arms
+line(x-175,y+55,x-180,y+70);
+line(x-125,y+55,x-120,y+70);
+ellipse(x-180,y+75,12,12);
+ellipse(x-120,y+75,12,12);
+//hat
+fill(0, 0, 0);
+rect(x-175,y+30,50,8);
+rect(x-165,y-10,30,32);
+fill(255, 255, 255);
+rect(x-165,y+23,30,7);
+//Platforms
+noStroke();
+fill(183, 135, 255);
+rect(300,300,100,20,10);
+rect(0,300,100,20,10);
+rect(165,300,65,20,10);
+fill(0, 0, 0);
+textSize(20);
+text("Start",30,317);
+textSize(20);
+text("End",335,317);
+//lava
+fill(255, 92, 92);
+rect(0,350,400,76);
+fill(0, 0, 0);
+textSize(50);
+text("Lava",149,400);
+textSize(40);
+text("Totally Amazing Game",0,42);
+text("Great Graphics",0,88);
+    //spikes
+    if (mouseIsPressed) { x = x +5;}
+    fill(255, 255, 255);
+    triangle(x2-40,y2-200,x2-65,y2-150,x2-90,y2-200);
+    triangle(x2+90,y2-200,x2+65,y2-150,x2+40,y2-200);
+    //if statement for spikes
+    if (y2>500) {speed = -15;}
+    if (y2<200) {speed = 15;}
+    y2 = y2 + speed;
+    fill(0, 0, 0);
+    if (mouseX>350) {background(255,255,255);}
+    if (mouseX>350) {text ("You Win", 100,220);}
+    
+    
+    
+    
+    
+};
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

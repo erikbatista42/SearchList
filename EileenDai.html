@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+             var x= -30;
+ var y1= 285;
+var y2 =285;
+var y3= 285;
+var y4= 285;
+ var speed = 2;
+ var speed2 =2;
+ var speed3=3;
+ var speed4=4;
+ 
+
+    var raindrop1 = function () {
+    fill(18, 191, 230);
+    ellipse(357, y1-468, 29, 41);
+    };
+    var raindrop2 = function () {
+        fill(18, 191, 230);
+        ellipse(239, y2-400, 29, 41);
+    };
+    var raindrop3 = function() {
+        fill(18, 191,230);
+        ellipse(61, y3-530, 29, 41);
+    };
+    var baddrop = function () {
+        fill(0, 0, 0);
+        ellipse(189, y4-510, 29, 41);
+    };
+    var Cloud = function () {
+        fill(255, 255, 255);
+    ellipse(x+281, 52, 110, 66);
+    ellipse(x+238,32, 82, 66);
+    ellipse(x+199, 48, 99, 66);
+    };
+var MissCloud = function(mouseX, mouseY) {
+    //clouds
+    fill(255, 255, 255);
+    ellipse(mouseX, mouseY, 110, 70);
+    ellipse(mouseX+48, mouseY-20, 82, 66);
+    ellipse(mouseX+75, mouseY+7, 99, 66);
+    //eyes
+    stroke(0, 0, 0);
+    ellipse(mouseX+11, mouseY-6, 14, 20);
+    ellipse(mouseX+67, mouseY-5, 14, 20);
+    fill(0, 0, 0);
+    ellipse(mouseX+11, mouseY-10, 12, 13);
+     ellipse(mouseX+67, mouseY-10, 12, 13);
+     //cheeks
+     fill(237, 180, 234);
+     noStroke();
+      ellipse(mouseX+77, mouseY+12, 18, 10);
+       ellipse(mouseX-5, mouseY+12, 18, 10);
+    };
+    
+    
+var MrBucket = function(mouseX, mouseY) {
+//bucket
+noStroke();
+fill(69, 68, 68);
+quad(mouseX+56, mouseY-26, mouseX+67, mouseY-95, mouseX-2, mouseY-95, mouseX+7, mouseY-26);//bucket
+//eyes
+fill(255, 255, 255);
+ellipse(mouseX+18, mouseY-70, 14, 20);
+ellipse(mouseX+45, mouseY-70, 14, 20);
+fill(13, 13, 13);
+ellipse(mouseX+18, mouseY-72, 13, 16);
+ellipse(mouseX+45, mouseY-72, 13, 16);
+//mustache
+fill(255, 255, 255);
+ellipse(mouseX+21, mouseY-47, 20, 14);
+ellipse(mouseX+41, mouseY-47, 20, 14);
+};
+
+
+  
+draw= function() {
+    background(118, 241, 247);
+    noStroke();
+    //score
+     fill(0, 0, 0);
+    textSize(23);
+   text("Score", 13, 32);
+   
+   
+   
+  Cloud();
+  raindrop1(192, 328);
+  raindrop2(288, 376);
+  raindrop3(200, 400);
+  baddrop(118, 200);
+
+
+    MissCloud(mouseX, mouseY);
+    MrBucket(mouseX, mouseY);
+    
+    y1=y1+speed;
+    
+    y4=y4+speed4;
+  
+   if (y1  > 838) { fill(10, 10, 10); text("Game Over", 200, 200);}
+    else{ fill(10, 10, 10); text("Move mouse to move", 172, 87);}
+    
+  if (y4 === mouseX && y4 === mouseY) {text("Game Over", 150, 200);}
+  if (y1 > 750 ) { speed=0; 
+  background(118, 241, 247);
+  MissCloud(mouseX, mouseY);
+  MrBucket(mouseX,mouseY);
+  //score
+     fill(0, 0, 0);
+    textSize(23);
+   text("Score", 13, 32);
+   fill(10 ,10, 10); text("1", 36, 63);
+   Cloud();
+   fill(10, 10, 10); text("YOU WIN!!!", 151, 200);
+  }  else { fill(10, 10, 10); text("0", 36, 63);}
+ 
+   
+
+  
+    
+    
+  
+
+      
+    
+};
+
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

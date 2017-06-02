@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var x = 1;
+var y = 2;
+var a = 1;
+var z = -15;
+var speed = 0.7;
+var speed2 = 2;
+var speed3 = 2;
+var b = 84;
+var c = 272;
+var d = 275;
+var e = 15;
+
+var videoGame = function () {
+    
+    e = e + speed3;
+    c = c + speed2;
+    a += speed;
+    // micky mouse
+    stroke(1);
+    x = mouseX - 184;
+    y = mouseY - 237;
+    background(60, 74, 74);
+    fill(8, 8, 8);
+    ellipse(x + 164, y + 164, 22, 26); // right ear
+    ellipse(x + 209, y + 164, 22, 26); // left ear
+    rect(x + 193, y + 287, 10, 35); // left leg
+    rect(x + 173, y + 287, 10, 35); // right leg
+    quad(x + 174, y + 242, x + 122, y + 219, x + 126, y + 212, x + 179, y + 235); // right arm
+    quad(x + 249, y + 222, x + 245, y + 215, x + 204, y + 230, x + 204, y + 238); // left arm
+    rect(x + 169, y + 204, 37, 87, 29); // body
+    ellipse(x + 188, y + 197, 60, 60); // head
+    fill(245, 230, 155);
+    ellipse(x + 199, y + 189, 25, 40); // left eye
+    ellipse(x + 177, y + 189, 25, 40); // right eye
+    ellipse(x + 188, y + 213, 52, 25); // mouth
+    fill(66, 9, 9);
+    arc(x + 189, y + 215, 23, 15, 7, 180);
+    fill(245, 230, 155);
+    arc(x + 189, y + 211, 39, 11, 10, 180);
+    ellipse(x + 182, y + 190, 9, 18); // right eyeball
+    fill(10, 6, 6);
+    ellipse(x + 183, y + 193, 4, 10); // right
+    fill(245, 230, 155);
+    ellipse(x + 196, y + 190, 9, 18); // left eyeball
+    fill(8, 4, 4);
+    ellipse(x + 195, y + 193, 4, 10); // left
+    fill(255, 0, 0);
+    ellipse(x + 189, y + 220, 13, 6); // tongue
+    fill(15, 10, 10);
+    ellipse(x + 189, y + 204, 11, 8); // nose
+    fill(255, 0, 0);
+    rect(x + 168, y + 230, 38, 64, 15); // red thing on body
+    fill(10, 8, 8);
+    arc(x + 190, y + 227, 46, 31, 41, 154);
+    fill(250, 237, 237);
+    ellipse(x + 181, y + 257, 7, 12);
+    ellipse(x + 196, y + 257, 7, 12);
+    strokeWeight(2);
+    line(x + 189, y + 294, x + 189, y + 282);
+    line(x + 177, y + 278, x + 189, y + 282);
+    line(x + 201, y + 278, x + 189, y + 282);
+    strokeWeight(1);
+    fill(255, 234, 0);
+    ellipse(x + 173, y + 322, 25, 20); // right foot
+    ellipse(x + 204, y + 322, 25, 20); // left foot
+    fill(255, 255, 255);
+    ellipse(x + 126, y + 217, 24, 17); // right hand
+    ellipse(x + 248, y + 217, 24, 17);
+    noStroke();
+    ellipse(a + 215, z + 55, 57, 66);
+    ellipse(a + 183, z + 43, 52, 66); // clouds
+    ellipse(a + 244, z + 49, 52, 66);
+    if (a > 125) {
+        speed = -0.7;
+    }
+    if (a < -102) {
+        speed = 0.7;
+    }
+    fill(21, 107, 3);
+    rect (-9, 370, 416, 110); // grass
+    fill(188, 191, 174);
+    triangle(28, 70, 10, -2, 54, -3);
+    fill(255, 255, 0);
+    ellipse(4, 13, 84, 79); // sun
+    fill(5, 2, 2);
+    rect(148, 271, 12, 101);
+    rect(242, 271, 12, 101);
+    rect(325, 271, 12, 101);
+    rect(63, 271, 12, 101);
+    fill(51, 21, 21);
+    ellipse(29, 270, 77, 9);
+    fill(245, 242, 242);
+    textSize(25);
+    text("Start", 5, 301);
+    fill(51, 21, 21);
+    ellipse(365, 270, 77, 9);
+    fill(247, 239, 239);
+    text("End", 344, 308);
+    fill(27, 133, 145);
+    rect(75, 272, 73, 131);
+    rect(160, 272, 82, 131);
+    rect(254, 272, 72, 131);
+    image(getImage("avatars/orange-juice-squid"), b, c, 54, 53);
+    if (c > 350) {
+        speed2 = -2;
+    }
+    if (c < 13) {
+        speed2 = 2;
+    }
+    image(getImage("avatars/orange-juice-squid"), d, e, 54, 53);
+    if (e > 350) {
+        speed3 = -2;
+    }
+    if (e < 13) {
+        speed3 = 2;
+    }
+    fill(188, 191, 174);
+    triangle(54, 70, 75, -2, 49, -3);
+    triangle(82, 70, 91, -2, 71, -3);
+    triangle(106, 70, 119, -2, 87, -3);
+    triangle(132, 70, 144, -2, 116, -3);
+    triangle(154, 70, 166, -2, 138, -3);
+    triangle(174, 70, 188, -2, 161, -3);
+    triangle(196, 70, 209, -2, 184, -3);
+    triangle(219, 70, 233, -2, 202, -3);
+    triangle(241, 70, 255, -2, 227, -3);
+    triangle(265, 70, 280, -2, 247, -3);
+    triangle(290, 70, 302, -2, 275, -3);
+    triangle(315, 70, 327, -2, 297, -3);
+    triangle(338, 70, 347, -2, 319, -3);
+    triangle(365, 70, 375, -2, 342, -3);
+    if (y < -91) {
+        fill(247, 244, 244);
+        textSize(39);
+        text("Game Over", 112, 346);
+    }
+    if (mouseY > 184 & mouseX > 35 & mouseX < 359) {
+        fill(245, 240, 240);
+        textSize(39);
+        text("Game Over", 112, 346);
+    }
+    if (mouseY > 169 & mouseX > 315) {
+        fill(245, 233, 233);
+        textSize(39);
+        text("You Win", 112, 346);
+    }
+    
+};
+draw = function() {
+    videoGame();
+};
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

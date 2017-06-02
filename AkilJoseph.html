@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var move=0;
+var y=0;
+var speed=3;
+var Eye=function(x,y){
+ellipse(mouseX,mouseY,75,75);
+fill(13, 0, 255);
+ellipse(mouseX,mouseY,44,47);
+fill(0, 0, 0);
+ellipse(mouseX,mouseY,19,19);}; 
+draw= function() {
+background(23, 0, 0);
+
+fill(110, 6, 6);
+rect(382,move+-100,17,253);
+rect(384,move+290,16,153);
+rect(0,move+-100,15,253);
+rect(16,move+-100,15,253);
+rect(32,move+-100,15,253);
+rect(48,move+-100,15,253);
+rect(64,move+-100,15,253);
+rect(80,move+-100,15,253);
+rect(96,move+-100,15,253);
+rect(112,move+-100,15,253);
+rect(128,move+-100,15,253);
+rect(144,move+-100,15,253);
+rect(160,move+-100,15,253);
+rect(176,move+-100,15,253);
+rect(192,move+-100,15,253);
+rect(208,move+-100,15,253);
+rect(224,move+-100,15,253);
+rect(240,move+-100,15,253);
+rect(256,move+-100,15,253);
+rect(272,move+-100,15,253);
+rect(288,move+-100,15,253);
+rect(304,move+-100,15,253);
+rect(320,move+-100,15,253);
+rect(336,move+-100,15,253);
+rect(352,move+-100,15,253);
+rect(367,move+-100,15,253);
+rect(0,move+290,15,204);
+rect(16,move+290,15,204);
+rect(32,move+290,15,204);
+rect(48,move+290,15,204);
+rect(64,move+290,15,204);
+rect(80,move+290,15,204);
+rect(96,move+290,15,204);
+rect(112,move+290,15,204);
+rect(128,move+290,15,204);
+rect(144,move+290,15,204);
+rect(160,move+290,15,204);
+rect(176,move+290,15,204);
+rect(192,move+290,15,204);
+rect(208,move+290,15,204);
+rect(224,move+290,15,204);
+rect(240,move+290,15,204);
+rect(256,move+290,15,204);
+rect(272,move+290,15,204);
+rect(288,move+290,15,204);
+rect(304,move+290,15,204);
+rect(320,move+290,15,204);
+rect(336,move+290,15,204);
+rect(352,move+290,15,204);
+rect(368,move+290,15,204);
+fill(255, 255, 255); 
+Eye(mouseX,mouseY);
+fill(255, 149, 0);
+textSize(30);
+text('START',-1,292);
+text('END',337,292);
+if(mouseY>251+move){
+background(0, 0, 0);
+fill(255, 0, 0);
+textSize(55);
+text('Game Over!',67,200);
+speed=0;
+}
+if(mouseY<191+move){
+fill(255, 0, 0);
+background(0, 0, 0);
+textSize(55);
+text('Game Over!',67,200);
+speed=0;
+}
+if(mouseX>367 & mouseY>190+move & mouseY<272+move){
+background(255, 255, 255);
+fill(0, 17, 255);
+textSize(55);
+text('You Win!',96,200);
+speed=0;
+}
+if(mouseX>-1 & mouseX<37 & mouseY>191+move & mouseY<235+move){
+fill(0, 255, 17);
+text('GO!',143,206);
+speed=2;
+}
+move=move+speed;
+if(move>74){
+speed=-2;}
+if(move<2){
+speed=2;}    
+};
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

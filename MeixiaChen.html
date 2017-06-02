@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+
+            var x=10;
+var y=10;
+var speed = 2;
+var speed1=1;
+var speed2=3;
+var speed3=4;
+var speed4=2;
+var speed5=2;
+var position=10;
+var z=10;
+var j=10;
+var K=199;
+var a=10;
+var b=10;
+var c=10;
+var d=10;
+var e=10;
+var bc=10;
+var cd=10;
+var cat= function() {
+    background(237, 154, 227);
+    noStroke();
+    position = position + speed;
+    position = position + speed1;
+    position = position + speed2;
+     position = position + speed3;
+    fill(26, 19, 19); 
+    triangle(x+163, y+350,x+185, y+370, x+165, y+339);
+    triangle(x+169, y+395,x+191, y+357, x+179, y+337);
+    triangle(x+164, y+560,x+228, y+391, x+190, y+339);
+     triangle(x+261, y+349,x+254, y+372, x+250, y+336);
+    triangle(x+156, y+554,x+351, y+730, x+320, y+335);
+    triangle(x+231, y+669,x+295, y+377, x+271, y+335);
+    
+    fill(255, 0, 85); // start color
+
+    if (mouseIsPressed && mouseX>1 && mouseY>361 && mouseX<415 &&mouseY<507) { 
+        fill(33, 112, 52); // click color
+    }
+ 
+    rect(x+-9, y+351, x+404, y+136);
+    fill(250, 245, 250);
+    ellipse(z+55, d+356, x+64, y+44);//cloud
+    ellipse(z+22, d+356, x+52, y+34);
+    ellipse(z+86, d+356, x+52, y+34);
+    textSize(29);
+    fill(33, 18, 33);
+    
+    fill(250, 245, 250);
+    
+    ellipse(b+321, d+271, x+64, y+44);//cloud3
+    ellipse(b+348, d+241, x+52, y+34);
+    ellipse(b+290, d+247, x+52, y+34);
+    
+    ellipse(e+184, d+143, x+64, y+44);//cloud5
+    ellipse(e+222, d+123, x+52, y+34);
+    ellipse(e+153, d+123, x+52, y+34);
+    ellipse(z+321, d+71, x+64, y+44);//cloud6
+    ellipse(z+348, d+55, x+52, y+34);
+    ellipse(z+290, d+54, x+52, y+34);
+    textSize(29);
+    fill(33, 18, 33);
+    text("End",z+296,d+65);
+    fill(240, 232, 240);
+    stroke(20, 17, 20);
+    rect(j+12, K+130, x+17, y+24, 26);//leg
+    rect(j+49, K+130, x+17, y+24, 30);
+    rect(j+2, K+104, x+16, y+20, 30);//arm
+    rect(j+56, K+108, x+16, y+20, 30);
+    triangle(j+18, K+79, j+36, K+62, j+13, K+54);//ears
+    triangle(j+70, K+90, j+39, K+73, j+85, K+55);
+    ellipse(j+45, K+85, x+53, y+40);//head
+    fill(255, 0, 43);
+    ellipse(j+44, K+132, x+61, y+61);//candy
+    fill(245, 5, 141);
+    ellipse(j+44,K+133, x+51, y+51);
+     fill(121, 22, 171);
+    ellipse(j+44, K+131, x+41, y+41);
+     fill(36, 36, 240);
+    ellipse(j+44, K+130, x+31, y+31);
+    fill(68, 235, 202);
+    ellipse(j+44, K+132, x+21, y+21);
+    fill(118, 232, 158);
+    ellipse(j+44, K+131, x+11, y+11);
+    fill(212, 219, 20);
+    ellipse(j+44, K+132, x+1, y+1);
+    fill(235, 68, 26);
+    ellipse(j+44, K+132, x-4, y-4);
+    fill(15, 14, 15);
+    ellipse(j+34, K+82, x+-1, y+1);//eyes
+    ellipse(j+55, K+82, x+-1, y+1);
+    fill(250, 242, 250);
+    ellipse(j+33, K+81, x+-4, y+-5);
+    ellipse(j+54, K+81, x+-4, y+-5);
+    fill(255, 0, 123);
+    ellipse(j+45, K+61, x+7, y+7);//Bow tie
+    ellipse(j+64, K+61, x+7, y+7);
+    ellipse(j+54, K+62, x+2, y+1);
+    fill(242, 225, 225);
+    ellipse(j+44, K+90, x+-4, y+-5);//nose
+    noStroke();
+    fill(219, 134, 199);
+    ellipse(j+65, K+93, x+-4, y+-5);//face
+    ellipse(j+26, K+92, x+-4, y+-5);
+    if (keyIsPressed && keyCode === RIGHT) {
+    j=j+5;
+}
+    if (keyIsPressed && keyCode === UP) {
+    K=K-5;
+}
+     if (keyIsPressed && keyCode === LEFT) {
+    j=j-5;
+}
+    if (keyIsPressed && keyCode === DOWN) {
+    K=K+5;
+}
+    if(a>165){
+   speed=-2;
+    }
+    if(a<-132){
+   speed=2;
+    }
+    a=a+speed;
+    if(b>11){
+   speed1=-1;
+    }
+    if(b<-264){
+   speed1=1;
+    }
+    b=b+speed1;
+
+    if(c>343){
+   speed2=-3;
+    }
+    if(c<-13){
+   speed2=3;
+    }
+    c=c+speed2;
+    if(e>163){
+   speed3=-4;
+    }
+    if(e<-141){
+   speed3=4;
+    }
+    e=e+speed3;
+    
+    if(K<-39&&j>270){
+     fill(15, 13, 13);
+     text("win! ", 120, 200);
+} else{
+    
+}
+    
+      
+    
+    if(mouseIsPressed&&K>200&&j<15){
+    fill(23, 20, 20);
+    text("start ", 69, 238);
+     
+} else{
+    
+}
+
+    
+    
+    
+   
+ };  
+var obstacles=function(){
+fill(255, 0, 0);
+    rect(mouseX+26, bc+92, x+23, y+24);
+    if(bc>142){
+   speed4=-2;
+    }
+    if(bc<-33){
+   speed4=2;
+    }
+    bc=bc+speed4;
+    
+    rect(cd+26, mouseY+92, x+23, y+24);
+    if(cd>315){
+   speed5=-2;
+    }
+    if(cd<105){
+   speed5=2;
+    }
+    cd=cd+speed5;
+    
+
+
+};
+draw= function() {
+    cat();
+    obstacles();
+    
+ 
+};
+  
+
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

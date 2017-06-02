@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            //MAKE PIPLUP 
+var x = mouseX; //x base variable of piplup 200
+var y = mouseY; //y base variable of piplup 200
+
+var PSize = 75; //size control of piplup
+
+var fx = 200; //x base variable of flame
+var fy = 200; //y base variable of flame
+var FSize = 50; //size control of flame
+var speed = 3; //speed for FSpeed
+var FSpeed = speed; //base speed of flame
+var gamePiplup = function(){
+    var x = mouseX; //x base variable of piplup 200
+    var y = mouseY; //y base variable of piplup 200
+
+    stroke(0,0,0);
+    fill(255, 213, 99); //flipper color
+    ellipse(x+-17/75*PSize, y+62/75*PSize, 1/4*PSize, 7/20*PSize); //left flipper thingy x+146 y-13
+    ellipse(x+17/75*PSize, y+62/75*PSize, 1/4*PSize, 7/20*PSize); //right flipper thing x-241 y+244
+    line(x+-22/75*PSize, y+73/75*PSize, x+-22/75*PSize, y+63/75*PSize); //left foot : left line
+    line(x+-15/75*PSize, y+73/75*PSize, x+-15/75*PSize, y+63/75*PSize); //left foot : right line
+    line(x+22/75*PSize, y+73/75*PSize, x+22/75*PSize, y+63/75*PSize); //right foot : left line
+    line(x+15/75*PSize, y+73/75*PSize, x+15/75*PSize, y+63/75*PSize); //right foot : right line
+    
+    
+    fill(137, 217, 224); //stomach & leg & arm color
+    quad(x+-5.5/20*PSize, y+11/20*PSize, x+-2.5/20*PSize, y+6/10*PSize, x+-3/20*PSize, y+3/4*PSize, x+-3/10*PSize, y+3/4*PSize); //left leg
+    quad(x+5.5/20*PSize, y+11/20*PSize, x+1/8*PSize, y+6/10*PSize, x+3/20*PSize, y+3/4*PSize, x+3/10*PSize, y+3/4*PSize); //right leg
+    
+    
+    ellipse(x, y+3/10*PSize, 17/20*PSize, 13/20*PSize); //stomach
+    fill(255, 255, 255); //stomach circle color
+    ellipse(x-4.5/20*PSize, y+6.5/20*PSize, 1/5*PSize, 1/5*PSize); //stomach left circle
+    ellipse(x+4.5/20*PSize, y+6.5/20*PSize, 1/5*PSize, 1/5*PSize); //stomach right circle
+    
+    
+    fill(137, 217, 224); //arm color
+    ellipse(x+-27/75*PSize, y+21/75*PSize, 5.5/20*PSize, 11.5/20*PSize); //left arm x+37 y-62
+    ellipse(x+27/75*PSize, y+21/75*PSize, 5.5/20*PSize, 11.5/20*PSize); //right arm x-108 y+169
+    
+    
+    fill(68,132,178); //bowtie color
+    ellipse(x-3.7/20*PSize, y+1.9/20*PSize, 3/8*PSize, 3/8*PSize); //left bowtie
+    ellipse(x+3.7/20*PSize, y+1.9/20*PSize, 3/8*PSize, 3/8*PSize); //right bowtie 
+    
+    
+    fill(255, 255, 255); //head color
+    ellipse(x, y+-6.1/20*PSize, 19/20*PSize, 9/10*PSize); //head
+    fill(68,132,178); //"hair" color
+    ellipse(x, y+-9/20*PSize, 17.1/20*PSize, 6/10*PSize); //"hair"
+    
+    
+    fill(137, 217, 224); //above nose 
+    quad(x+-2.6/20*PSize, y+-1/4*PSize, x+-4.1/20*PSize, y+-9.8/20*PSize, x+-1/20*PSize, y+-4/10*PSize, x+-0.9/20*PSize, y+-6.8/20*PSize); //left upper nose
+    quad(x+2.6/20*PSize, y+-1/4*PSize, x+4.1/20*PSize, y+-9.8/20*PSize, x+1/20*PSize, y+-4/10*PSize, x+0.9/20*PSize, y+-6.8/20*PSize); //right upper nose
+    triangle(x-1.3/20*PSize, y+-7.8/20*PSize, x+1.3/20*PSize, y+-7.8/20*PSize, x, y-1/2*PSize); //mid triangle nose
+    noStroke(); //no stroke for mid upper nose
+    quad(x+-1.1/20*PSize, y+-6.5/20*PSize, x+-1.4/20*PSize, y+-7.9/20*PSize, x+1.4/20*PSize, y+-7.9/20*PSize, x+1.1/20*PSize, y+-6.5/20*PSize); //mid upper nose
+    stroke(0, 0, 0); //return of stroke
+    
+    
+    
+    fill(255, 255, 255); // cheek color
+    arc(x-3/10*PSize, y-5.8/20*PSize, 6.8/20*PSize, 11.5/20*PSize, -206, 13); //left cheek
+    arc(x+3/10*PSize, y-5.8/20*PSize, 6.8/20*PSize, 11.5/20*PSize, -206, 13); //right cheek
+    noStroke(); //no stroke for cheek smudge
+    ellipse(x-5.5/20*PSize, y-1/4*PSize, 5.3/20*PSize, 4.8/20*PSize); //left cheek smudge
+    ellipse(x+5.5/20*PSize, y-1/4*PSize, 5.3/20*PSize, 4.8/20*PSize); //right cheek smudge
+    stroke(0, 0, 0); //return to stroke regular
+    
+    
+    fill(0, 0, 0); //eye whole color
+    ellipse(x-3/10*PSize, y+-3/10*PSize, 1/8*PSize, 4.5/20*PSize); //left eye whole
+    ellipse(x+3/10*PSize, y+-3/10*PSize, 1/8*PSize, 4.5/20*PSize); //right eye whole
+    fill(255, 255, 255); //eye pupil color
+    ellipse(x+-3/10*PSize, y+-6.9/20*PSize, 1.2/20*PSize, 1/10*PSize); //left eye pupil
+    ellipse(x+3/10*PSize, y+-6.9/20*PSize, 1.2/20*PSize, 1/10*PSize); //right eye pupil
+    
+    
+    fill(242,216,139); //nose color
+    ellipse(x, y+-3.5/20*PSize, 6.5/20*PSize, 6.5/20*PSize); //nose whole
+    arc(x, y+-3.1/20*PSize, 6.8/20*PSize, 2.3/20*PSize, 28, 155); //nose curve
+};
+
+var piplup = function(x,y){
+    fill(255, 213, 99); //flipper color
+    rotate(40); //rotate left filler 40
+    ellipse(x+146, y+-13, 1/4*PSize, 7/20*PSize); //left flipper thingy x+146 y-13
+    rotate(-80); //rotate right flipper -40
+    ellipse(x+-241, y+244, 1/4*PSize, 7/20*PSize); //right flipper thing x-241 y+244
+    rotate(40); //return to default rotation
+    line(x-6.9/20*PSize, y+16.6/20*PSize, x-7.9/20*PSize, y+19/20*PSize); //left foot : left line
+    line(x-5.7/20*PSize, y+17.2/20*PSize, x-6.9/20*PSize, y+19.5/20*PSize); //left foot : right line
+    line(x+5.8/20*PSize, y+17.4/20*PSize, x+6.9/20*PSize, y+19.5/20*PSize); //right foot : left line
+    line(x+6.7/20*PSize, y+17/20*PSize, x+7.9/20*PSize, y+19/20*PSize); //right foot : right line
+    
+    
+    fill(137, 217, 224); //stomach & leg & arm color
+    quad(x+-5.5/20*PSize, y+11/20*PSize, x+-2.5/20*PSize, y+6/10*PSize, x+-3/20*PSize, y+3/4*PSize, x+-3/10*PSize, y+3/4*PSize); //left leg
+    quad(x+5.5/20*PSize, y+11/20*PSize, x+1/8*PSize, y+6/10*PSize, x+3/20*PSize, y+3/4*PSize, x+3/10*PSize, y+3/4*PSize); //right leg
+    
+    
+    ellipse(x, y+3/10*PSize, 17/20*PSize, 13/20*PSize); //stomach
+    fill(255, 255, 255); //stomach circle color
+    ellipse(x-4.5/20*PSize, y+6.5/20*PSize, 1/5*PSize, 1/5*PSize); //stomach left circle
+    ellipse(x+4.5/20*PSize, y+6.5/20*PSize, 1/5*PSize, 1/5*PSize); //stomach right circle
+    
+    
+    fill(137, 217, 224); //arm color
+    rotate(35); //rotate left arm 35
+    ellipse(x+37, y+-62, 5.5/20*PSize, 11.5/20*PSize); //left arm x+37 y-62
+    rotate(-70); //rotate right arm -35
+    ellipse(x+-108, y+169, 5.5/20*PSize, 11.5/20*PSize); //right arm x-108 y+169
+    rotate(35); //return to default 
+    
+    
+    fill(68,132,178); //bowtie color
+    ellipse(x-3.7/20*PSize, y+1.9/20*PSize, 3/8*PSize, 3/8*PSize); //left bowtie
+    ellipse(x+3.7/20*PSize, y+1.9/20*PSize, 3/8*PSize, 3/8*PSize); //right bowtie 
+    
+    
+    fill(255, 255, 255); //head color
+    ellipse(x, y+-6.1/20*PSize, 19/20*PSize, 9/10*PSize); //head
+    fill(68,132,178); //"hair" color
+    ellipse(x, y+-9/20*PSize, 17.1/20*PSize, 6/10*PSize); //"hair"
+    
+    
+    fill(137, 217, 224); //above nose 
+    quad(x+-2.6/20*PSize, y+-1/4*PSize, x+-4.1/20*PSize, y+-9.8/20*PSize, x+-1/20*PSize, y+-4/10*PSize, x+-0.9/20*PSize, y+-6.8/20*PSize); //left upper nose
+    quad(x+2.6/20*PSize, y+-1/4*PSize, x+4.1/20*PSize, y+-9.8/20*PSize, x+1/20*PSize, y+-4/10*PSize, x+0.9/20*PSize, y+-6.8/20*PSize); //right upper nose
+    triangle(x-1.3/20*PSize, y+-7.8/20*PSize, x+1.3/20*PSize, y+-7.8/20*PSize, x, y-1/2*PSize); //mid triangle nose
+    noStroke(); //no stroke for mid upper nose
+    quad(x+-1.1/20*PSize, y+-6.5/20*PSize, x+-1.4/20*PSize, y+-7.9/20*PSize, x+1.4/20*PSize, y+-7.9/20*PSize, x+1.1/20*PSize, y+-6.5/20*PSize); //mid upper nose
+    stroke(0, 0, 0); //return of stroke
+    
+    
+    
+    fill(255, 255, 255); // cheek color
+    arc(x-3/10*PSize, y-5.8/20*PSize, 6.8/20*PSize, 11.5/20*PSize, -206, 13); //left cheek
+    arc(x+3/10*PSize, y-5.8/20*PSize, 6.8/20*PSize, 11.5/20*PSize, -206, 13); //right cheek
+    noStroke(); //no stroke for cheek smudge
+    ellipse(x-5.5/20*PSize, y-1/4*PSize, 5.3/20*PSize, 4.8/20*PSize); //left cheek smudge
+    ellipse(x+5.5/20*PSize, y-1/4*PSize, 5.3/20*PSize, 4.8/20*PSize); //right cheek smudge
+    stroke(0, 0, 0); //return to stroke regular
+    
+    
+    fill(0, 0, 0); //eye whole color
+    ellipse(x-3/10*PSize, y+-3/10*PSize, 1/8*PSize, 4.5/20*PSize); //left eye whole
+    ellipse(x+3/10*PSize, y+-3/10*PSize, 1/8*PSize, 4.5/20*PSize); //right eye whole
+    fill(255, 255, 255); //eye pupil color
+    ellipse(x+-3/10*PSize, y+-6.9/20*PSize, 1.2/20*PSize, 1/10*PSize); //left eye pupil
+    ellipse(x+3/10*PSize, y+-6.9/20*PSize, 1.2/20*PSize, 1/10*PSize); //right eye pupil
+    
+    
+    fill(242,216,139); //nose color
+    ellipse(x, y+-3.5/20*PSize, 6.5/20*PSize, 6.5/20*PSize); //nose whole
+    arc(x, y+-3.1/20*PSize, 6.8/20*PSize, 2.3/20*PSize, x+-172, x+-45); //nose curve
+};
+
+var flame = function(fx,fy){
+noStroke(); //no stroke for flame
+fill(255, 40, 0); //whole red flame color
+ellipse(fx, fy, 5/4*FSize, 32.5/20*FSize); //whole red flame
+fill(255, 255, 20); //whole yellow flame color
+ellipse(fx, fy+3/10*FSize, 5/8*FSize, 17/20*FSize); //whole yellow flame
+fill(0, 255, 17); //match background for curves in flame
+
+
+arc(fx+3/4*FSize, fy+3.4/20*FSize, 8.8/20*FSize, 12.3/20*FSize, 146, 235); //right bottom chunk
+arc(fx+10.6/20*FSize, fy+-3.7/20*FSize, 3.8/20*FSize, 13.6/20*FSize, 155, 348); //right mid chunk
+arc(fx+9.3/20*FSize, fy+-7.4/20*FSize, 1/4*FSize, 9/20*FSize, 268, 403); //right upper mid chunk
+arc(fx+3.6/20*FSize, fy+-9.5/20*FSize, 1/4*FSize, 13.4/20*FSize, 254, 400); //right upper upper chunk
+arc(fx+-2.7/20*FSize, fy+-9.3/20*FSize, 6.9/20*FSize, 3/4*FSize, 241, 396); //mid top chunk
+arc(fx+-6.5/20*FSize, fy+-8.8/20*FSize, 7/20*FSize, 1/2*FSize, 99, 269); //left upper chunk
+arc(fx+-12.6/20*FSize, fy+1.1/20*FSize, 7.1/20*FSize, 10.8/20*FSize, 261, 398); //left lower chunk
+
+
+fill(255, 40, 0); //match red whole flame color
+arc(fx+3/20*FSize, fy+10.1/20*FSize, 11.5/20*FSize, 20.3/20*FSize, 290, 323); //right bottom chunk
+arc(fx+7.8/20*FSize, fy+1/8*FSize, 4.2/20*FSize, 7.3/20*FSize, 124, 236); //right mid chunk
+arc(fx, fy+1.1/20*FSize, 5.2/20*FSize, 10.1/20*FSize, 258, 442); //top chunk
+arc(fx+-2.4/20*FSize, fy+3/200*FSize, 3/10*FSize, 11.9/20*FSize, 87, 329); //left upper chunk
+arc(fx+-7.8/20*FSize, fy+10.2/20*FSize, 9.9/20*FSize, 9.7/20*FSize, -73, 9); //left bottom chunk
+};
+
+var sideFlame = function(fx,fy){
+rotate(-90); //rotation to side for flame
+noStroke(); //no stroke for flame
+fill(255, 40, 0); //whole red flame color
+ellipse(fx, fy, 5/4*FSize, 32.5/20*FSize); //whole red flame
+fill(255, 255, 20); //whole yellow flame color
+ellipse(fx, fy+3/10*FSize, 5/8*FSize, 17/20*FSize); //whole yellow flame
+fill(0, 255, 17); //match background for curves in flame
+
+
+arc(fx+3/4*FSize, fy+3.4/20*FSize, 8.8/20*FSize, 12.3/20*FSize, 146, 235); //right bottom chunk
+arc(fx+10.6/20*FSize, fy+-3.7/20*FSize, 3.8/20*FSize, 13.6/20*FSize, 155, 348); //right mid chunk
+arc(fx+9.3/20*FSize, fy+-7.4/20*FSize, 1/4*FSize, 9/20*FSize, 268, 403); //right upper mid chunk
+arc(fx+3.6/20*FSize, fy+-9.5/20*FSize, 1/4*FSize, 13.4/20*FSize, 254, 400); //right upper upper chunk
+arc(fx+-2.7/20*FSize, fy+-9.3/20*FSize, 6.9/20*FSize, 3/4*FSize, 241, 396); //mid top chunk
+arc(fx+-6.5/20*FSize, fy+-8.8/20*FSize, 7/20*FSize, 1/2*FSize, 99, 269); //left upper chunk
+arc(fx+-12.6/20*FSize, fy+1.1/20*FSize, 7.1/20*FSize, 10.8/20*FSize, 261, 398); //left lower chunk
+
+
+fill(255, 40, 0); //match red whole flame color
+arc(fx+3/20*FSize, fy+10.1/20*FSize, 11.5/20*FSize, 20.3/20*FSize, 290, 323); //right bottom chunk
+arc(fx+7.8/20*FSize, fy+1/8*FSize, 4.2/20*FSize, 7.3/20*FSize, 124, 236); //right mid chunk
+arc(fx, fy+1.1/20*FSize, 5.2/20*FSize, 10.1/20*FSize, 258, 442); //top chunk
+arc(fx+-2.4/20*FSize, fy+3/200*FSize, 3/10*FSize, 11.9/20*FSize, 87, 329); //left upper chunk
+arc(fx+-7.8/20*FSize, fy+10.2/20*FSize, 9.9/20*FSize, 9.7/20*FSize, -73, 9); //left bottom chunk
+rotate(90);//return to default
+};
+
+
+background(0, 43, 255); //starting background
+stroke(0, 0, 0);
+fill(255, 255, 255);
+rect(0, 0, 200, 150); //top left
+rect(200, 0, 200, 150); //top right
+rect(0, 150, 200, 150); //bottom left
+rect(200, 150, 200, 150); //bottom right
+rect(0, 300, 100, 100); //bottom bottom left
+rect(100, 300, 100, 100); //bottom bottom left mid
+rect(200, 300, 100, 100); //bottom bottom right mid
+rect(300, 300, 100, 100); //bottom bottom right 
+fill(0, 21, 255); //dont press rect
+rect(300,100, 100, 60);
+fill(255, 0, 0);
+textSize(15);
+text("Don't press", 305, 128);
+textSize(30);
+text("Easy Mode",10, 80);
+text("Medium Mode", 210, 80);
+text("Hard Mode", 10, 230);
+text("Random Mode", 200, 230);
+textSize(15);
+text("View Piplup", 10, 350);
+text("View Flame", 110, 350);
+textSize(12);
+text("View Side Flame", 205, 350); 
+textSize(30);
+text("Guide", 310, 360);
+
+
+var easyMode = false;
+var mediumMode = false;
+var hardMode = false;
+var randomMode = false;
+var showPiplup = false;
+var showFlame = false;
+var showSideFlame = false;
+var showGuide = false;
+var mouseOverStart = false;
+var startButton = false;
+var winScreen = false;
+var finishButton = false;
+
+
+draw = function() {
+    if(finishButton === true){
+    rect(300, 100, 100, 60); //finish rect
+    textSize(20); //textSize for start and finish
+    fill(0, 0, 0); //text color
+    text("Finish", 325, 135); //finish text    
+    }
+    
+    if(startButton === true){
+    fill(255, 0, 0);
+    rect(0, 340, 100, 60); //start rect
+    fill(0, 0, 0);
+    textSize(20);
+    text("Start", 25, 375); //start text
+    }
+    if(winScreen === true){
+    background(0, 255, 30);
+    textSize(40);
+    text("YOU WIN!", 100, 202);
+    easyMode = false;
+    mediumMode = false;
+    hardMode = false;
+    randomMode = false;
+    showPiplup = false;
+    showFlame = false;
+    showSideFlame = false;
+    showGuide = false;
+    mouseOverStart = false;
+    startButton = false;
+   
+    }
+    if(mouseIsPressed && mouseX<200 && mouseY<150){
+    easyMode = true;
+    background(0, 255, 17);
+    startButton = true;
+    }
+    if(mouseIsPressed && mouseX>200 && mouseY<150){
+    mediumMode = true; 
+    background(0, 255, 17);
+    startButton = true;
+    }
+    if(mouseIsPressed && mouseX<200 && mouseY>150 && mouseY<300){
+    hardMode = true;
+    background(0, 255, 17);
+    startButton = true;
+    }
+    if(mouseIsPressed && mouseX>200 &&mouseY>150 && mouseY<300){
+    randomMode = true;
+    background(0, 255, 17);
+    startButton = true;
+    }
+    if(mouseIsPressed && mouseX<100 && mouseY>340){
+    mouseOverStart = true;    
+    }
+    if(mouseIsPressed && mouseX<100 && mouseY>300){
+    showPiplup = true;   
+    }
+    if(mouseIsPressed && mouseX>100 &&mouseX<200 && mouseY>300){
+    showFlame = true;    
+    }
+    if(mouseIsPressed && mouseX>200 && mouseX<300 && mouseY>300){
+    showSideFlame = true;    
+    }
+    if(mouseIsPressed && mouseX>300 && mouseY>300){
+    showGuide = true;    
+    }
+    if(showPiplup === true){
+    background(255,255,255);
+    PSize = 200;
+    piplup(200, 200);
+    PSize = 75;
+    }
+    if(showFlame === true){
+    background(0, 255, 17);
+    FSize = 200;
+    flame(200, 200);
+    FSize = 50;
+    }
+    if(showSideFlame === true){
+    background(0, 255, 17);
+    FSize = 200;
+    sideFlame(-200, 200);
+    FSize = 50;
+    }
+    if(showGuide === true){
+    background(255,255,255);
+    textSize(50);
+    text("GUIDE", 120, 75);
+    textSize(20);
+    text("This is a simple video game, the goal", 35, 110);
+    text("is to get piplup to the finish, while ", 20, 135);
+    text("avoiding the fire. There are four different", 20, 160);
+    text("game modes listed as:", 20, 185);
+    text("Easy-Slowest speed of fire movement", 20, 210);
+    text("Medium-Middle speed of fire movement", 20, 235);
+    text("Hard-Fastest speed of fire movement", 20, 260);
+    text("Random-Random speeds of fire movement", 20, 285);
+    text("Tip-Press mouse on finish in game to win ", 20, 310);
+    textSize(35);
+    text("GOOD LUCK!", 100, 345);
+    
+    }
+    
+    
+    
+    
+    
+    if(easyMode === true && mouseOverStart === true){
+    background(0, 255, 17); //background
+    fill(255, 0, 0); //start
+    
+    
+    rect(300, 100, 100, 60); //finish rect
+    textSize(20); //textSize for start and finish
+    fill(0, 0, 0); //text color
+    text("Finish", 325, 135); //finish text 
+    
+    
+    gamePiplup(); 
+    flame(fx-50,fy-150);
+    sideFlame(fx+-395,fy+-155);
+    flame(fx+100, fy+-50);
+    sideFlame(fx+-277,fy-301);
+    flame(fx+150, fy-250);
+    sideFlame(fx+-539, fy+0);
+    flame(fx+-150, fy+-350);
+    speed = 3;
+    if(fy<195){
+    FSpeed = FSpeed+speed;
+    
+    }
+    if(fy>500){
+    FSpeed = FSpeed -speed;
+    
+    }
+    fy = fy +FSpeed;  
+        if(mouseIsPressed && mouseX>300 && mouseY>100 && mouseY<160 ){
+        winScreen = true;
+    }
+        }
+
+        
+        
+        
+        
+    if(mediumMode === true && mouseOverStart === true){
+    background(0, 255, 17); //background
+    fill(255, 0, 0); //start
+    
+    rect(300, 100, 100, 60); //finish rect
+    textSize(20); //textSize for start and finish
+    fill(0, 0, 0); //text color
+    text("Finish", 325, 135); //finish text
+    
+    
+    gamePiplup(); 
+    flame(fx-50,fy-150);
+    sideFlame(fx+-395,fy+-155);
+    flame(fx+100, fy+-50);
+    sideFlame(fx+-277,fy-301);
+    flame(fx+150, fy-250);
+    sideFlame(fx+-539, fy+0);
+    flame(fx+-150, fy+-350);
+    speed = 4;
+    if(fy<195){
+    FSpeed = FSpeed+speed;
+    
+    }
+    if(fy>500){
+    FSpeed = FSpeed -speed;
+    
+    }
+    fy = fy +FSpeed;   
+        }
+    if(mouseIsPressed && mouseX>300 && mouseY>100 && mouseY<160 ){
+    winScreen = true;
+    mediumMode = false;
+    }
+    
+    
+    
+    
+    
+    if(hardMode === true && mouseOverStart === true){
+    background(0, 255, 17); //background
+    fill(255, 0, 0); //start
+    
+    rect(300, 100, 100, 60); //finish rect
+    textSize(20); //textSize for start and finish
+    fill(0, 0, 0); //text color
+    text("Finish", 325, 135); //finish text
+    
+    
+    gamePiplup(); 
+    flame(fx-50,fy-150);
+    sideFlame(fx+-395,fy+-155);
+    flame(fx+100, fy+-50);
+    sideFlame(fx+-277,fy-301);
+    flame(fx+150, fy-250);
+    sideFlame(fx+-539, fy+0);
+    flame(fx+-150, fy+-350);
+    speed = 5;
+    if(fy<195){
+    FSpeed = FSpeed+speed;
+    
+    }
+    if(fy>500){
+    FSpeed = FSpeed -speed;
+    
+    }
+    fy = fy +FSpeed;   
+        }
+    
+    if(mouseIsPressed && mouseX>300 && mouseY>100 && mouseY<160 ){
+    winScreen = true;
+    hardMode = false;
+    }
+    
+    
+    
+    
+    
+    if(randomMode === true && mouseOverStart === true){
+    background(0, 255, 17); //background
+    fill(255, 0, 0); //start
+    
+    rect(300, 100, 100, 60); //finish rect
+    textSize(20); //textSize for start and finish
+    fill(0, 0, 0); //text color
+    text("Finish", 325, 135); //finish text
+    
+    
+    gamePiplup(); 
+    flame(fx-50,fy-150);
+    sideFlame(fx+-395,fy+-155);
+    flame(fx+100, fy+-50);
+    sideFlame(fx+-277,fy-301);
+    flame(fx+150, fy-250);
+    sideFlame(fx+-539, fy+0);
+    flame(fx+-150, fy+-350);
+    speed = random(2.5,5.5);
+    if(fy<195){
+    FSpeed = FSpeed+speed;
+    
+    }
+    if(fy>500){
+    FSpeed = FSpeed -speed;
+    
+    }
+    fy = fy +FSpeed;   
+        }
+    if(mouseIsPressed && mouseX>300 && mouseY>100 && mouseY<160 ){
+    background(0, 255, 30);
+    if(mouseIsPressed && mouseX>300 && mouseY>100 && mouseY<160 ){
+    winScreen = true;
+    }
+    randomMode = false;
+    }
+ };
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

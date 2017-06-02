@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var x = 217;
+var y=2;
+var speed = 73;
+
+draw = function() {
+    background(188, 224, 222);
+   
+    fill(71, 54, 23);//sign
+    rect(338,378,30,23);
+    fill(255, 254, 222);
+    rect(311, 332, 88, 48);
+    fill(0, 0, 0);
+    textSize(14);
+    
+        if(mouseIsPressed){
+        text("Avoid the urge of touching the Donuts",80,202);
+    }
+    else{
+    text("CLICK HERE", 313, 359);
+}
+
+    
+    fill(242, 242, 242);//Police Department
+    rect(1,0,133,49);
+    rect(244,0,155,49);
+    rect(135,-2,108,13);
+    fill(82, 69, 60);//sign
+    rect(2,30,131,21);
+    rect(244,49,170,-20);
+    fill(15, 14, 14);
+    text("Police Dpt.",158,10);
+    
+    fill(143, 133, 133);//road
+    rect(-5,393,417,25);
+    fill(240, 235, 235);//Police Car
+    rect(24,349,83,26,6);
+   rect(9,335,81,46,6);
+   ellipse(20,381,34,34);//wheels
+   ellipse(81,381,34,34);
+  fill(15, 14, 14);
+    ellipse(81,381,19,19);
+     ellipse(20,382,19,19);
+      fill(0, 34, 255);
+     rect(9,349,81,9);//stripe
+     fill(79, 73, 73);//window
+    rect(73,340,17,17,1);//lights
+     fill(255, 0, 0);
+     rect(51,324,19,11);
+    fill(9, 0, 255);
+    rect(41,324,19,11);
+    fill(250, 245, 245);
+    rect(33,324,14,11);
+    
+   
+    
+      fill(201, 169, 106);//donut
+    ellipse(200, y+163, 50, 50);
+fill(188, 224, 222);
+    ellipse(200,y+161,20,13);
+    fill(250, 40, 177);
+    rect(188,y+145,23,4);
+    fill(9, 173, 159);
+    rect(192,y+173,23,4);
+if(y>344){speed=-3;}
+if(y<20){speed=2;}
+   y = y + speed;
+
+ fill(242, 228, 228);//donut
+ ellipse(27,y+40,47,43);
+     rect(284,y+665,35,24);
+     fill(188, 224, 222);
+     ellipse(26,y+40,16,11);
+     fill(246, 74, 255);
+     rect(12,y+50,13,3);
+     fill(255, 59, 33);
+     rect(16,y+25,13,3);
+     
+     fill(168, 72, 72);
+     ellipse(338,y+40,44,40);//Donut2
+     rect(284,y+665,35,24);
+     fill(188,224,222);
+     ellipse(339,y+40,16,11);
+     fill(223, 213, 224);
+     rect(328,y+50,13,3);
+     fill(97, 214, 97);
+      rect(331,y+27,13,3);
+       
+        fill(176, 119, 119);
+     ellipse(126,y+-73,44,40);//Donut3
+     rect(267,y+665,35,24);
+     fill(188,224,222);
+     ellipse(126,y+-72,16,11);
+     fill(223, 213, 224);
+     rect(120,y+-64,13,3);
+     fill(86, 17, 235);
+      rect(119,y+-88,13,3);
+      
+       fill(240, 218, 218);
+     ellipse(270,y+-73,44,40);//Donut4
+     rect(430,y+710,35,24);
+     fill(188,224,222);
+     ellipse(270,y+-72,16,11);
+     fill(168, 67, 84);
+     rect(262,y+-63,13,3);
+     fill(224, 18, 235);
+      rect(260,y+-89,13,3);
+      
+       fill(168, 72, 72);//donut5
+    ellipse(x+213, 108, 48, 45);
+fill(188, 224, 222);
+    ellipse(x+213,108,18,12);
+    fill(237, 218, 218);
+    rect(x+205,116,16,5);
+    fill(36, 158, 25);
+     rect(x+199,91,18,5);
+   if(x>209){speed=-3;}
+if(x<-4862){speed=2;}
+   x = x+ speed;
+   
+    fill(227, 161, 161);//donut5
+    ellipse(x+8, 108, 48, 45);
+fill(188, 224, 222);
+    ellipse(x+7,108,18,12);
+    fill(237, 218, 218);
+    rect(x+2,116,16,5);
+    fill(36, 158, 25);
+     rect(x+-1,91,18,5);
+   
+    fill(255, 0, 0);
+    rect(-8,85,27,47);//sides
+    fill(9, 0, 255);
+    rect(-2,100,21,32);//sides
+     fill(242, 230, 230);
+    rect(-7,119,26,14);//sides
+    
+  fill(250, 242, 227);//donut6
+    ellipse(x+156, 264, 48, 45);
+fill(188, 224, 222);
+    ellipse(x+155,264,18,12);
+    fill(209, 115, 115);
+    rect(x+146,273,16,5);
+    fill(14, 230, 194);
+     rect(x+146,247,18,5);
+     
+      fill(0, 0, 0);//donut7
+    ellipse(x+-25, 264, 48, 45);
+fill(188, 224, 222);
+    ellipse(x+-25,264,18,12);
+    fill(209, 115, 115);
+    rect(x+-29,275,16,5);
+    fill(14, 230, 194);
+     rect(x+-36,247,18,5);
+     
+     
+      fill(255, 0, 0);
+    rect(-8,242,27,32);//sides
+    fill(9, 0, 255);
+    rect(-2,257,21,32);//sides
+     fill(242, 230, 230);
+    rect(-7,279,26,14);//sides
+    
+     fill(255, 0, 0);
+    rect(380,85,27,47);//sides
+    fill(9, 0, 255);
+    rect(381,100,21,32);//sides
+     fill(242, 230, 230);
+    rect(380,120,26,14);//sides
+    
+     fill(255, 0, 0);
+    rect(381,244,27,32);//sides
+    fill(9, 0, 255);
+    rect(382,260,21,32);//sides
+     fill(242, 230, 230);
+    rect(381,278,26,14);//sides
+    
+     
+     fill(240, 201, 180);//Police
+    ellipse(mouseX+17,mouseY+5,12,20);//ear
+    ellipse(mouseX+59,mouseY+6,12,20);
+     fill(124, 123, 130);//shoes
+    ellipse(mouseX+51,mouseY+63,25,11);
+    ellipse(mouseX+21,mouseY+63,25,11);
+    fill(240, 201, 180);
+     rect(mouseX+23,mouseY+30,50,12,6);
+      rect(mouseX+1,mouseY+30,50,12,6);
+    fill(0, 34, 255);//body
+     rect(mouseX+16,mouseY+30,50,12);//arms
+     rect(mouseX+9,mouseY+30,29,12);
+     ellipse(mouseX+38,mouseY+41,42,46);
+     fill(240, 201, 180);
+    ellipse(mouseX+38,mouseY+5,45,45);//head
+    fill(245, 240, 240);//eye
+    ellipse(mouseX+49,mouseY+3,13,15);
+    ellipse(mouseX+29,mouseY+4,13,15);
+    fill(10, 10, 10);//inner eye
+    ellipse(mouseX+49,mouseY+5,9,10);
+    ellipse(mouseX+29,mouseY+6,9,10);
+    fill(240, 240, 240);
+    ellipse(mouseX+39,mouseY+18,10,2);//mouth
+    
+ 
+};
+
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

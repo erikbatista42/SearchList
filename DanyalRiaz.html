@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var x = 196;   
+var y = 149;    
+var x2 = 128;  
+var y2 = 150; 
+var x3 = 150; 
+var y3 = 150;
+var x4 = -36;
+var y4 = 228;
+var speed = 1.0;
+
+var Flamey = function(x4,y4){
+    // the character aka flamey
+fill(255, 0, 0);
+rect(x4+70,y4-6,-55,31);// top
+rect(x4+16,y4+28,55,19);// bottom
+fill(227, 147, 9);
+rect(x4+20,y4+20,+9,16); // 1st teeth
+rect(x4+49,y4+19,+-13,21); // 2nd teeth
+rect(x4+54,y4+18,+11,21); // 3rd teeth
+ellipse(x4+55,y4+7,22,-17); // left eye
+ellipse(x4+29,y4+7,14,-13); // right eye
+};
+    
+    
+    
+    draw= function() {
+     background(0, 0, 0);
+    Flamey(x4,y4);
+    fill(55, 96, 133);
+    rect(-5,273,413,128);// 1st floor 
+    fill(112, 61, 112);
+    triangle(x+-23,y+124,x+-2,y+124,x+-13,y+92);//obstical #1
+    triangle(x+14,y+124,x+-2,y+124,x+6,y+73);//obstical #2
+    triangle(x+35,y+124,x+15,y+124,x+23,y+89);//obstical #3
+
+    fill(196, 8, 8);
+    rect(257,0,431,128);// 2nd floor
+    triangle(x2+200,y2+-22,x2+227,y2+-22,x2+217,y2+56);//obstical #4
+    triangle(x2+179,y2+-22,x2+201,y2+-22,x2+185,y2+20);//obstical #5
+    triangle(x2+252,y2+-22,x2+227,y2+-22,x2+239,y2+38);//obstical #6
+
+
+    fill(64, 255, 0);
+    rect(0,0,140,128);// 3rd floor
+    triangle(x3+-109,y3+-22,x3+-80,y3+-22,x3+-98,y3+37);//obstical #7
+    triangle(x3+-53,y3+-22,x3+-80,y3+-22,x3+-67,y3+16);//obstical #8
+    triangle(x3+-109,y3+-22,x3+-136,y3+-22,x3+-127,y3+16);//obstical #9
+
+    x4=x4+speed;
+    
+    
+
+
+    if (x4 > 375) {
+    fill(255, 0, 0);
+    textFont(createFont("fantasy",40));
+    textSize(28);
+    text("YOU WIN!!",117,183);
+    }
+
+    if (mouseIsPressed) {
+    y4=y4-1;    
+}
+
+else{ 
+y4 = y4 + 1;}
+
+
+
+    };
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var x=61;
+var speed=2;
+var y=81;
+x=x+speed;
+
+draw=function() {
+
+background(mouseX,mouseY,mouseY);
+image(getImage("cute/RoofWest"), 51, -98,350,500);
+x=x+speed;
+noStroke();
+//clowd
+fill(255, 255, 255);
+if (mouseIsPressed){
+    fill(0, 0, 0);
+}
+
+ellipse(x+26,y,30,34);
+ellipse(x-26,y,30,34);
+ellipse(x,y,51,50);
+
+ellipse(x+6,y+200,30,34);
+ellipse(x-46,y+200,30,34);
+ellipse(x-20,y+200,51,50);
+
+
+ellipse(x+26+200,y+105,30,34);
+ellipse(x-26+200,y+105,30,34);
+ellipse(x+200,y+105,51,50);
+
+ellipse(x+26+100,y+250,30,34);
+ellipse(x-26+100,y+250,30,34);
+ellipse(x+100,y+250,51,50);
+
+ellipse(x+26+100,y+250,30,34);
+ellipse(x-26+100,y+250,30,34);
+ellipse(x+100,y+250,51,50);
+
+ellipse(x+26+100-200,y+250,30,34);
+ellipse(x-26+100-200,y+250,30,34);
+ellipse(x+100-200,y+250,51,50);
+
+ellipse(x+26+100-500,y+250,30,34);
+ellipse(x-26+100-500,y+250,30,34);
+ellipse(x+100-500,y+250,51,50);
+
+ellipse(x+26+100-400,y+50,30,34);
+ellipse(x-26+100-400,y+50,30,34);
+ellipse(x+100-400,y+50,51,50);
+
+if(x>600){speed=-1;}
+if(x<0){speed=1;}
+
+var a=61;
+var b=61;
+ellipse(a+6+97,x+-133,30,34);
+ellipse(a-46+100,x+-135,30,34);
+ellipse(a-20+100,x+-135,51,50);
+
+ellipse(a+6+260,x+-133-50,30,34);
+ellipse(a-46+256,x+-135-50,30,34);
+ellipse(a-20+258,x+-135-50,51,50);
+   
+   
+
+//character
+strokeWeight(2);
+var a=160;
+var b=115;
+fill(100, 242, 109);
+//body
+ellipse(mouseX,mouseY+45,62,80);
+//head
+ellipse(mouseX,mouseY,70,70);
+//eyes
+fill(255, 250, 250);
+ellipse(mouseX,mouseY-10,33,39);
+fill(8, 8, 8);
+ellipse(mouseX,mouseY-10,21,20);
+//mouth
+fill(255, 0, 0);
+arc(mouseX, mouseY+15, 33, 25, 1, 180);  
+image(getImage("avatars/avatar-team"), mouseX-16,mouseY+33,40,40);
+
+
+
+
+
+//start & end
+fill(129, 121, 242);
+rect(0,401,79,-51);
+fill(106, 209, 90);
+textSize(30);
+text("start",-2,388);
+
+fill(129, 121, 242);
+rect(331,-2,70,47);
+fill(106, 209, 90);
+textSize(30);
+text("End",341,33);
+
+
+
+
+//obs
+
+fill(67, 240, 240);
+if(mouseIsPressed){
+    fill(170, 112, 235);
+}
+
+rect(180,90,70,30);
+rect(130,250,70,30);
+rect(280,330,70,30);
+rect(300,210,70,30);
+rect(40,40,70,30);
+
+//image obs
+image(getImage("space/star"), 203, 250, -31, 31);
+image(getImage("space/star"), 160, 250, -31, 31);
+image(getImage("space/star"), 181, 250, -31, 31);
+image(getImage("avatars/mr-pink"), 182, 90,30,30);
+image(getImage("avatars/mr-pink"), 215, 90,30,30);
+image(getImage("cute/Rock"), 337, 193,30,50);
+image(getImage("cute/Rock"), 302, 193,30,50);
+image(getImage("cute/EnemyBug"), 317, 314,30,50);
+image(getImage("cute/EnemyBug"), 283, 314,30,50);
+image(getImage("creatures/OhNoes"), 43, 41,30,30);
+image(getImage("creatures/OhNoes"), 75, 41,30,30);
+
+//text
+var f = createFont("monospace");
+textFont(f);
+fill(255, 0, 0);
+if(mouseX>180&&mouseX<259&&mouseY>90&&mouseY<120)
+{
+    background(0, 0, 0);
+     textSize(50);
+image(getImage("creatures/OhNoes"), -1, 85,200,200);
+    text("Game Over", 85,200);
+}
+if(mouseX>130&&mouseX<200&&mouseY>250&&mouseY<280)
+{
+    background(0, 0, 0);
+     textSize(50);
+     image(getImage("creatures/OhNoes"), -1, 85,200,200);
+    text("Game Over", 85,200);
+}
+if(mouseX>280&&mouseX<350&&mouseY>330&&mouseY<360)
+{
+    background(0, 0, 0);
+     textSize(50);
+     image(getImage("creatures/OhNoes"), -1, 85,200,200);
+    text("Game Over", 85,200);
+}
+if(mouseX>300&&mouseX<370&&mouseY>210&&mouseY<240)
+{
+    background(0, 0, 0);
+     textSize(50);
+     image(getImage("creatures/OhNoes"), -1, 85,200,200);
+    text("Game Over", 85,200);
+}
+if(mouseX>40&&mouseX<110&&mouseY>40&&mouseY<70)
+{
+    background(0, 0, 0);
+     textSize(50);
+     fill(255, 0, 0);
+     image(getImage("creatures/OhNoes"), -1, 85,200,200);
+    text("Game Over", 85,200);
+}
+
+
+
+
+
+//winning
+if (mouseX>331&&mouseX<401&&mouseY>-2&&mouseY<45)
+{
+    background(255, 0, 0);
+    textSize(50);
+    fill(0, 0, 0);
+image(getImage("creatures/Hopper-Jumping"), 105, 85,200,200);
+    text("Winning", 107,200);
+}
+
+
+
+};
+
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

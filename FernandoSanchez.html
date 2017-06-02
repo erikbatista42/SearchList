@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var CX = 185;//charector X
+var CY = 10;//charector Y
+var CMSR = 0; //charector Movment speed right
+var CMSL = 0; //charector Movment speed left
+var CMSU = 0; //charector Movment speed up
+var CMSD = 0; //charector Movment speed down
+var CMSRP = false; //charector Movment speed right
+var CMSLP = false; //charector Movment speed left
+var CMSUP = false; //charector Movment speed up
+var CMSDP = false; //charector Movment speed down
+var colour = 0;
+var OX = 400; //Obsticle's X
+var OX2 = 400;
+var OX3 = 400;
+var OX4 = 400;
+var OX5 = 400;
+var OX6 = 400;
+var speed = 1; //Obsticle's speed
+var speed2 = 2;
+var speed3 = 3;
+var speed4 = 4;
+var speed5 = 5;
+var speed6 = 6;
+var Score = 0;
+var ScoreCheck = false;
+var GameOver = false;
+var Lv1 = 350;
+var Lv2 = 0;
+var Lv3 = 0;
+var Lv4 = 0;
+var Lv5 = 0;
+var Lv6 = 0;
+var Lv7 = 0;
+var Lv8 = 0;
+var Lv9 = 0;
+var Lv10 = 0;
+var YOUWIN = false;
+var YOUWIN2 = false;
+var Custom = false;
+var GameOver3 = 0;
+var GameStart = false;
+var tutorial = false;
+var tutorialPT2 = false;
+var tutorialmove = false;
+var timer1 = 0;
+var timer2 = 0;
+var timer3 = 0;
+var text1 = false;
+var text2 = false;
+var text3 = false;
+var text4 = false;
+var text5 = false;
+var text6 = false;
+
+var obsticle = function (OY) {
+//----------------------------------------------------------------------------------
+fill(0, 0, 0);
+rect(350, OY+10, 50, 60);
+fill(166, 105, 105);
+ellipse(OX-20, OY+40, 40, 40);
+OX -= speed;
+if(CX> OX-50 && CX< OX&& CY > OY && CY<OY+50) {GameOver3=110;}
+//------------------------------------------------=----------------------------------
+};
+var obsticle2 = function (OY) {
+//----------------------------------------------------------------------------------
+fill(0, 0, 0);
+rect(350, OY+10, 50, 60);
+fill(173, 57, 57);
+ellipse(OX2-20, OY+40, 40, 40);
+OX2 -= speed2;
+if(CX> OX2-50 && CX< OX2&& CY > OY && CY<OY+50) {GameOver3=110;}
+//------------------------------------------------=----------------------------------
+};
+var obsticle3 = function (OY) {
+//----------------------------------------------------------------------------------
+fill(0, 0, 0);
+rect(350, OY+10, 50, 60);
+fill(179, 0, 0);
+ellipse(OX3-20, OY+40, 40, 40);
+OX3 -= speed3;
+if(CX> OX3-50 && CX< OX3&& CY > OY && CY<OY+50) {GameOver3=110;}
+};
+//------------------------------------------------=----------------------------------
+var obsticle4 = function (OY) {
+fill(0, 0, 0);
+rect(350, OY+10, 50, 60);
+fill(61, 1, 9);
+ellipse(OX4-20, OY+40, 40, 40);
+OX4 -= speed4;
+if(CX> OX4-50 && CX< OX4&& CY > OY && CY<OY+50) {GameOver3=110;}
+};
+var obsticle5 = function (OY) {
+//----------------------------------------------------------------------------------
+fill(0, 0, 0);
+rect(350, OY+10, 50, 60);
+fill(49, 5, 145);
+ellipse(OX5-20, OY+40, 40, 40);
+OX5 -= speed5;
+if(CX> OX5-50 && CX< OX5&& CY > OY && CY<OY+50) {GameOver3=110;}
+};
+var obsticle6 = function (OY) {
+//----------------------------------------------------------------------------------
+fill(0, 0, 0);
+rect(350, OY+10, 50, 60);
+fill(255, 255, 255);
+ellipse(OX6-20, OY+40, 40, 40);
+OX6 -= speed6;
+if(CX> OX6-50 && CX< OX6&& CY > OY && CY<OY+50) {GameOver3=110;}
+};
+draw = function() {
+
+background(102, 86, 8);
+fill(20, 10, 168);
+textSize(30);
+text("Welcome To My Game", 60, 30);
+textSize(19);
+text("To Start, Press Start (good luck)", 72, 53);
+textSize(35);
+text("-Fernando S.", 183, 378);
+rect(130, 160, 140, 100);
+if (mouseIsPressed && mouseX> 130 && mouseX< 270 && mouseY> 160 && mouseY<260) {tutorial=true;}
+fill(0, 0, 0);
+text("Start", 163, 222);
+if(tutorial){
+    background(0, 0, 0);////////////////////////////////////////////////////////////////////
+
+fill(46, 176, 102);
+rect(350, 0, 100, 10000000);
+fill(194, 43, 43);
+rect(CX, CY, 20, 20);
+
+timer1 ++;
+if (timer1<100){text1=true;}
+if (timer1>100){text2=true;}
+if (timer1>200){text3=true;}
+if (timer1>350){text1=false; text2=false; tutorialmove=true; text3=false;}
+
+fill(133, 0, 166);
+textSize(26);
+
+if (text1){
+text("Welcome, To My Game.", 20, 60);}
+
+if (text2) { text("the mechanics are very simple.", 20, 100);
+text("use the arrow keys to start", 20, 130);
+
+if (text3) {text("try to come down here.", 20, 350);}
+
+}
+if (tutorialmove){
+if (OX < 10) {speed = -1;}
+if (OX === 395) {speed = 1;}
+if (OX2 < 10) {speed2 = -2;}
+if (OX2 === 400) {speed2 = 2;}
+if (OX3 < 10) {speed3 = -3;}
+if (OX3 === 400) {speed3 = 3;}
+if (OX4 < 10) {speed4 = -4;}
+if (OX4 === 400) {speed4 = 4;}
+if (OX5 < 10) {speed5 = -5;}
+if (OX5 === 400) {speed5 = 5;}
+if (OX6 < 10) {speed6 = -6;}
+if (OX6 === 400) {speed6 = 6;}
+textSize(30);
+
+if (keyIsPressed && keyCode === DOWN) {//moving down
+    CMSDP = true; 
+    CMSUP=false; 
+    CMSLP=false;
+    CMSRP=false;
+}
+if (keyIsPressed && keyCode === UP) {//moving up
+    CMSUP = true; 
+    CMSDP=false; 
+    CMSLP=false;
+    CMSRP=false;
+}
+if (keyIsPressed && keyCode === LEFT) {//moving left
+    CMSLP = true; 
+    CMSUP=false;
+    CMSDP=false;
+    CMSRP=false;
+}
+if (keyIsPressed && keyCode === RIGHT) {//moving right
+    CMSRP = true; 
+    CMSUP=false;
+    CMSLP=false; 
+    CMSDP=false;
+}
+if (keyIsPressed && keyCode === 16) {//STOP
+    CMSDP=false; 
+    CMSUP=false; 
+    CMSLP=false; 
+    CMSRP=false;
+}
+if (CX === 330) {CX -= 2;}//borders
+if (CX === 0) {CX += 2;}
+if (CY === 5) {CY += 2;}
+
+if (CMSDP) {CY += 1;}
+if (CMSUP) {CY -= 1;}
+if (CMSLP) {CX -= 1;}
+if (CMSRP) {CX += 1;}}
+
+if(GameOver3>100) {GameOver=true;}
+if(GameOver) {
+    background(10, 200, 200); 
+    fill(138, 51, 138);
+    text(Score, 222, 200); 
+    text("Score:", 131, 198);
+    text("GAME OVER", 115, 169);
+    CMSDP=false; 
+    CMSUP=false; 
+    CMSLP=false;
+    CMSRP=false;
+    fill(14, 158, 36);
+    rect(100, 205, 200, 100, 50);
+    fill(138, 51, 138);
+    text("Restart",150, 264);
+
+if(GameOver3===0) {GameOver=false;}
+}
+
+if(CY>300) {tutorialPT2=true;}
+if (tutorialPT2) {CY=10; 
+tutorialmove=false;
+timer2++;
+if(timer2>1){text4=true;}
+
+if(text4){text("good job, now look at", 20, 50);}
+text("this thing", 20, 80);}
+
+if(timer2>150){text5=true;}
+if(text5){obsticle(100);
+
+fill(133, 0, 166);
+textSize(26);
+
+text("This is an obstacle, avoid it", 20, 250);
+text("at all costs. touching it ", 20, 280);
+text("means game over", 20, 310);
+}
+if(timer2>550) {
+background(0, 255, 170);
+text6=true;
+}
+if (text6) {text("you have now learned the basics ", 20, 200);
+text("of my game...", 20, 230);
+fill(255, 234, 0);
+rect(85, 317, 228, 50);
+fill(133, 0, 166);
+text("Press Here To Start", 85, 350);
+
+if(mouseIsPressed&& mouseX>85 && mouseX<313 && mouseY>317 && mouseY< 367) {GameStart=true;}
+}
+}
+
+if (GameStart) {
+background(0, 0, 0);////////////////////////////////////////////////////////////////////////
+
+fill(46, 176, 102);
+rect(350, 0, 100, 10000000);
+fill(194, 43, 43);
+rect(CX, CY, 20, 20);
+
+if (OX < 10) {speed = -1;}
+if (OX === 395) {speed = 1;}
+if (OX2 < 10) {speed2 = -2;}
+if (OX2 === 400) {speed2 = 2;}
+if (OX3 < 10) {speed3 = -3;}
+if (OX3 === 400) {speed3 = 3;}
+if (OX4 < 10) {speed4 = -4;}
+if (OX4 === 400) {speed4 = 4;}
+if (OX5 < 10) {speed5 = -5;}
+if (OX5 === 400) {speed5 = 5;}
+if (OX6 < 10) {speed6 = -6;}
+if (OX6 === 400) {speed6 = 6;}
+textSize(30);
+
+if (keyIsPressed && keyCode === DOWN) {//moving down
+    CMSDP = true; 
+    CMSUP=false; 
+    CMSLP=false;
+    CMSRP=false;
+}
+if (keyIsPressed && keyCode === UP) {//moving up
+    CMSUP = true; 
+    CMSDP=false; 
+    CMSLP=false;
+    CMSRP=false;
+}
+if (keyIsPressed && keyCode === LEFT) {//moving left
+    CMSLP = true; 
+    CMSUP=false;
+    CMSDP=false;
+    CMSRP=false;
+}
+if (keyIsPressed && keyCode === RIGHT) {//moving right
+    CMSRP = true; 
+    CMSUP=false;
+    CMSLP=false; 
+    CMSDP=false;
+}
+if (keyIsPressed && keyCode === 16) {//STOP
+    CMSDP=false; 
+    CMSUP=false; 
+    CMSLP=false; 
+    CMSRP=false;
+}
+if (CX === 330) {CX -= 2;}//borders
+if (CX === 0) {CX += 2;}
+if (CY === 5) {CY += 2;}
+
+if (CMSDP) {CY += 1;}
+if (CMSUP) {CY -= 1;}
+if (CMSLP) {CX -= 1;}
+if (CMSRP) {CX += 1;}
+fill(255, 0, 0);
+
+textSize(25);
+if(Lv1>200) {
+    obsticle(100); 
+    obsticle2(200); 
+    Score=0;
+    fill(255, 255, 255); 
+    text("Level:1", 10, 25);
+    text("Score:" + Score, 285, 25);
+}
+if(Lv2>200) {
+    obsticle3(100); 
+    obsticle4(200); 
+    fill(255, 255, 255); 
+    text("Level:2", 10, 25);
+    text("Score:" + Score, 285, 25);
+}
+if(Lv3>200) {
+    obsticle5(100); 
+    obsticle6(200); 
+    fill(255, 255, 255); 
+    text("Level:3", 10, 25);
+    text("Score:" + Score, 285, 25);
+}
+if(Lv4>200) {
+    obsticle3(100); 
+    obsticle5(150); 
+    obsticle(250);
+    fill(255, 255, 255); 
+    text("Level:4", 10, 25);
+    text("Score:" + Score, 285, 25);
+}
+if(Lv5>200) {
+    obsticle2(100); 
+    obsticle4(150); 
+    obsticle(200); 
+    fill(255, 255, 255); 
+    text("Level:5", 10, 25);
+    text("Score:" + Score, 285, 25);
+}
+if(Lv6>200) {
+    obsticle4(100); 
+    obsticle6(150); 
+    obsticle2(200); 
+    fill(255, 255, 255); 
+    text("Level:6", 10, 25);
+    text("Score:" + Score, 285, 25);
+}
+if(Lv7>200) {
+    obsticle(100); 
+    obsticle6(150); 
+    obsticle2(200); 
+    fill(255, 255, 255); 
+    text("Level:7", 10, 25);
+    text("Score:" + Score, 285, 25);}
+if(Lv8>200) {
+    obsticle6(100);
+    obsticle2(150); 
+    obsticle4(200); 
+    obsticle5(250);
+    fill(255, 255, 255); 
+    text("Level:8", 10, 25);
+    text("Score:" + Score, 285, 25);
+}
+if(Lv9>200) {
+    obsticle5(100); 
+    obsticle6(150); 
+    obsticle4(250); 
+    obsticle3(300);
+    fill(255, 255, 255); 
+    text("Level:9", 10, 25);
+    text("Score:" + Score, 285, 25);
+}
+if(Lv10>200) {
+    obsticle(100); 
+    obsticle2(150); 
+    obsticle3(200); 
+    obsticle4(250);
+    obsticle5(300);
+    obsticle(350);
+    fill(255, 255, 255); 
+    text("Level:10", 10, 25);
+    text("Score:" + Score, 285, 25);
+}
+
+if(CY=== Lv1) {
+    Score= 100; 
+    CY = 10;
+    Lv1=-100;
+    Lv2=350;
+}
+if(CY=== Lv2) {
+    Score= 200; 
+    CY = 10;
+    Lv2=-100;
+    Lv3=350;
+}
+if(CY=== Lv3) {
+    Score= 300;
+    CY = 10; 
+    Lv3=-100; 
+    Lv4=350;
+}
+if(CY=== Lv4) {
+    Score= 400;
+    CY = 10;
+    Lv4=-100;
+    Lv5=350;
+}
+if(CY=== Lv5) {
+    Score= 500;
+    CY = 10; 
+    Lv5=-100;
+    Lv6=350;
+}
+if(CY=== Lv6) {
+    Score= 600; 
+    CY = 10; 
+    Lv6=-100;
+    Lv7=350;
+}
+if(CY=== Lv7) {
+    Score= 700;
+    CY = 10; 
+    Lv7=-100; 
+    Lv8=350;
+}
+if(CY=== Lv8) {
+    Score= 800; 
+    CY = 10; 
+    Lv8=-100; 
+    Lv9=350;
+}
+if(CY=== Lv9) {
+    Score= 900;
+    CY = 10; 
+    Lv9=-100;
+    Lv10=350;
+}
+if(CY=== Lv10) {YOUWIN=true;}
+textSize(29);
+if(YOUWIN) {
+    background(0, 0, 0); 
+    YOUWIN2=true; 
+    fill(7, 168, 95);
+}
+if(YOUWIN2) {
+    text("You Win", 20, 170); 
+    text("Score:9999999999999999999999999999999999999999999999999999999999999999999999999999    99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999    9999999999999999999", 20, 200); 
+    fill(66, 204, 186); 
+    rect(0,207, 400, 200);
+}
+if(GameOver3>100) {GameOver=true;}
+if(GameOver) {
+    background(10, 200, 200); 
+    fill(138, 51, 138);
+    text(Score, 222, 200); 
+    text("Score:", 131, 198);
+    text("GAME OVER", 115, 169);
+    CMSDP=false; 
+    CMSUP=false; 
+    CMSLP=false;
+    CMSRP=false;
+    fill(14, 158, 36);
+    rect(100, 205, 200, 100, 50);
+    fill(138, 51, 138);
+    text("Restart",150, 264);
+if(mouseIsPressed && mouseY> 205 && mouseY<300 && mouseX> 100 && mouseX<300){
+    Lv1=370;
+    Lv2=-10; 
+    Lv3=-10;
+    Lv4=-10;
+    Lv5=-10; 
+    Lv6=-10; 
+    Lv7=-10;
+    Lv8=-10; 
+    Lv9=-10; 
+    Lv10=-10; 
+    GameOver3=0; 
+    CY=20; 
+    CX=200;
+}
+if(GameOver3===0) {GameOver=false;}
+}
+}};
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

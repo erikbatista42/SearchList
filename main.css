@@ -5,6 +5,19 @@ body {
   color: #333;
 }
 li { color: yellow; text-align: center; }
-a {text-decoration: none;color: white; font-size: 28px;}
+a {text-decoration: none;color: white; font-size: 28px; font-family: avenir} 
+a:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+}
+a:hover:after {
+    width: 10%;
+    background: white;
+}
 ul { text-decoration: none; text-decoration-style: none; list-style: none;}
 h1 {text-align: center; color: yellow;}

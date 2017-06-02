@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            var position = 20;
+var speed = 2;
+
+background(214, 214, 122);
+var x=0;
+var y=0; 
+var mouseX = 0;
+var mouseY = 0;
+
+
+var drawBearman = function(mouseX,mouseY) {
+
+// head
+fill(156, 104, 40);
+stroke(0, 0, 0);
+strokeWeight(1.3);
+ellipse(mouseX,mouseY,125,105);
+
+// mouth thing
+fill(250, 206, 130);
+ellipse(mouseX+0,mouseY+42,59,65);
+
+fill(0, 0, 0);
+quad(mouseX+-9,mouseY+36,mouseX+7,mouseY+36,mouseX+3,mouseY+24,mouseX+-5,mouseY+24);
+
+noStroke();
+fill(87, 87, 87);
+ellipse(mouseX+3,mouseY+34,4,4);
+ellipse(mouseX+-5,mouseY+34,4,4);
+
+fill(0, 0, 0);
+ellipse(mouseX+3,mouseY+34,1,4);
+ellipse(mouseX+-5,mouseY+34,1,4);
+
+
+stroke(0, 0, 0);
+strokeWeight(1.3);
+line(mouseX+-1,mouseY+37,mouseX+-1,mouseY+42);
+
+fill(224, 92, 92);
+arc(mouseX+-1,mouseY+44,21,37,14,164);
+line(mouseX+-1,mouseY+44,mouseX+14,mouseY+51);
+line(mouseX+-1,mouseY+44,mouseX+-16,mouseY+51);
+
+// eyes
+strokeWeight(1.3);
+fill(156, 104, 40);
+arc(mouseX+24,mouseY+0,34,38,-141,99);
+
+fill(0, 0, 0);
+ellipse(mouseX+25,mouseY+-1,7,7);
+
+
+fill(156, 104, 40);
+arc(mouseX+-24,mouseY+0,34,38,-279,-39);
+
+fill(0, 0, 0);
+ellipse(mouseX+-25,mouseY+-1,7,7);
+
+
+// ears
+fill(156, 104, 40);
+strokeWeight(1.3);
+arc(mouseX+46,mouseY+-30,50,50,-136,51);
+arc(mouseX+-46,mouseY+-30,50,50,-229,-40);
+
+noStroke();
+fill(99, 65, 5);
+arc(mouseX+-48,mouseY+-30,22,26,134,323);
+arc(mouseX+49,mouseY+-30,22,26,218,400);
+
+
+
+};
+
+var drawBullet = function() {
+stroke(0, 0, 0);
+fill(138, 111, 3);
+ellipse(x+136,y+47,10,23);
+rect(x+130,y+53,12,6);
+
+ellipse(x+136,y+47,10,23);
+rect(x+130,y+53,12,6);
+
+
+ellipse(x+136,y+-172,10,23);
+rect(x+130,y+-166,12,6);
+
+ellipse(x+136,y+230,10,23);
+rect(x+130,y+236,12,6);
+
+ellipse(x+136,y+-335,10,23);
+rect(x+130,y+-329,12,6);
+
+ellipse(x+320,y+-73,10,23);
+rect(x+314,y+-67,12,6);
+
+ellipse(x+320,y+172,10,23);
+rect(x+314,y+178,12,6);
+
+ellipse(x+320,y+-281,10,23);
+rect(x+314,y+-276,12,6);
+
+};
+
+draw= function() {
+    background(214, 214, 122);
+    drawBullet();
+     if (y>375) {
+       speed=-2;
+   }
+   
+   if(y<25) {
+       speed=2;
+   }
+   
+      y = y + speed;
+   
+
+    drawBearman(mouseX,mouseY);
+     line(250,389,181,281);
+};
+ 
+line(510,284,359,250);
+
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>

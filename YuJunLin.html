@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+</head>
+<body style="background-color: black">
+  <canvas id="canvas"></canvas>
+  <script>
+
+
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1250, 640);
+        processing.background(0xFFF);
+
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+
+        with (processing) {
+
+
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+            background(140, 165, 255);
+fill(72, 232, 219);
+rect(250,315,130,50,50);
+fill(255, 255, 255);
+textSize(45);
+text("PLAY",260,325,115,150);
+text("Save The Pokeball",6,180,432,312);
+
+draw = function() {
+    if (mouseIsPressed && mouseX < 370 && mouseX > 250 && mouseY < 365 && mouseY > 315){
+
+    draw= function() {
+        background(199, 253, 255);
+        stroke(0, 0, 0);
+        //the endfill
+        fill(255, 51, 0);
+        ellipse(50,30,35,35);
+        fill(252, 215, 8);
+        ellipse(50,30,20,20);
+        
+        fill(163, 255, 140);
+        stroke(0, 0, 0);
+        //1
+        rect(-1,360,401,400);
+        //2
+        rect(100,280,300,25);
+        //3
+        rect(-1,200,230,25);
+        rect(300,200,100,25);
+        //4
+        rect(-1,120,100,25);
+        rect(170,120,230,25);
+        //5
+        rect(-1,50,330,25);
+        //pokeball
+        fill(255, 0, 0);
+        noStroke();
+        ellipse(mouseX,mouseY,35,35);
+        fill(255);
+        arc(mouseX,mouseY,35,35,0,180);
+        fill(0, 0, 0);
+        rect(mouseX-18,mouseY-1,35,3);
+        ellipse(mouseX, mouseY, 15,15);
+        fill(252, 252, 252);
+        ellipse(mouseX, mouseY, 7,7);
+        if (mouseY > 350){
+            fill(255, 0, 0);
+            textSize(50);
+            text("dying!!",130,180,233,260);
+        }
+        if (mouseX > 90 && mouseY < 325 && mouseY > 270){
+            fill(255, 0, 0);
+            textSize(50);
+            text("dying!!",130,180,233,260);
+        }
+        if (mouseX < 240 && mouseY < 240 && mouseY > 190 || mouseX > 290 && mouseY < 240 && mouseY > 190){
+            fill(255, 0, 0);
+            textSize(50);
+            text("dying!!",130,180,233,260);
+        }
+        if (mouseX < 115 && mouseY < 160 && mouseY > 110 || mouseX > 160 && mouseY < 160 && mouseY > 110){
+            fill(255, 0, 0);
+            textSize(50);
+            text("dying!!",130,180,233,260);
+        }
+        if (mouseX < 347 && mouseY < 87 && mouseY > 37){
+            fill(255, 0, 0);
+            textSize(50);
+            text("dying!!",130,180,233,260);
+        }
+        //pokeball
+        fill(255, 0, 0);
+        noStroke();
+        ellipse(mouseX,mouseY,35,35);
+        fill(255);
+        arc(mouseX,mouseY,35,35,0,180);
+        fill(0, 0, 0);
+        rect(mouseX-18,mouseY-1,35,3);
+        ellipse(mouseX, mouseY, 15,15);
+        fill(252, 252, 252);
+        ellipse(mouseX, mouseY, 7,7);
+
+        if(mouseX < 60 && mouseX > 40 && mouseY < 50 && mouseY > 5){
+                background(0, 217, 255);
+                fill(252, 0, 0);
+                textSize(35);
+                text("yeahhh,congratulations!!",15,150,400,50);
+                textSize(35);
+                text(" you won the game!!!!",40,225,400,50);
+                
+        
+        }  
+    };
+    
+
+
+}
+};
+
+            
+
+
+
+
+
+
+
+            //Code ends here
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>
